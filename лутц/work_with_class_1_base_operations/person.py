@@ -1,12 +1,4 @@
-class AttrDisplay(object):
-    def gatherAttrs(self):
-        attrs = []
-        for key in sorted(self.__dict__):
-            attrs.append('%s=%s' % (key, getattr(self, key)))
-        return ', '.join(attrs)
-
-    def __str__(self):
-        return '[%s: %s]' % (self.__class__.__name__, self.gatherAttrs())
+from generic import AttrDisplay
 
 class Person(AttrDisplay):
     def __init__(self, name, job=None, pay=0):
@@ -44,19 +36,19 @@ class Department(object):
 
 if __name__ == '__main__':
     bob = Person('Bob Smith')
-    # sue = Person('Sue Jones', job='dev', pay=100000)
+    sue = Person('Sue Jones', job='dev', pay=100000)
     print bob
-    # print sue
-    # print bob.lastName(), sue.lastName()
-    # sue.giveRaise(.10)
-    # print sue
-    # tom = Manager('Tom Jones', 50000)
-    # tom.giveRaise(.10)
-    # print tom.lastName()
-    # print tom
-    # development = Department(bob, sue)
-    # development.addMember(tom)
-    # development.giveRaises(.10)
-    # development.showAll()
+#     # print sue
+#     # print bob.lastName(), sue.lastName()
+#     # sue.giveRaise(.10)
+#     # print sue
+#     # tom = Manager('Tom Jones', 50000)
+#     # tom.giveRaise(.10)
+#     # print tom.lastName()
+#     # print tom
+#     # development = Department(bob, sue)
+#     # development.addMember(tom)
+#     # development.giveRaises(.10)
+#     # development.showAll()
 
 

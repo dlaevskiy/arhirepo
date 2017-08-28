@@ -1,0 +1,26 @@
+Account Information,,,,,,,,
+"Account Balance,""103,500"",Yen,,,,,,"
+Output Date:,,,,,,,,
+Account Number: 00140-8-00099135,,,,,,,,
+Statement Type: Date Specific,,,,,,,,
+Transactions for:  H27 Aug 1 - H27 Sept 23,,,,,,,,
+Number of Transactions,,,,,,,,
+Date,Transaction ID,Number of Deposit,Deposit Amount,Number of Withdrawal,Withdrawal Amount,Detail 1 (Purpose),Detail 2 (Name),Balance
+"20150801,2.02E+14,,,1,102,Statement Print Fee,,""130,985,521"""
+"20150801,2.02E+14,1,""7,910"",,,Wire Transfer,Mr AAA,""130,993,431"""
+"20150803,2.02E+14,1,""10,980"",,,Deposit Accepted,Ms. BBB,""131,004,411"""
+"20150803,2.02E+14,,,1,130903655,Automatic Withdrawal,CCC Corporation,""100,756"""
+"20150803,2.02E+14,,,,756,Fees,,""100,000"""
+"20150803,2.02E+14,1,""12,040"",,,Wire Transfer,Mr. DDD,""112,040"""
+"20150803,2.02E+14,3,""46,800"",,,Deposit,Ms. EEE,""158,840"""
+"20150803,2.02E+14,7470,""110,596,314"",,,Automatic Deposit,,""110,755,154"""
+"20150804,2.02E+14,,,1,110654398,Automatic Withdrawal,CCC Corporation,""100,756"""
+"20150804,2.02E+14,,,,756,Fees,,""100,000"""
+"20150804,2.02E+14,7798,""123,792,666"",,,Automatic Deposit,,""123,892,666"""
+"20150805,2.02E+14,,,1,123791910,Automatic Withdrawal,CCC Corporation,""100,756"""
+"20150805,2.02E+14,,,,756,Fees,,""100,000"""
+"20150805,2.02E+14,2,""13,208"",,,Deposit,,""113,208"""
+"20150805,2.02E+14,7251,""123,299,636"",,,Automatic Deposit,,""123,412,844"""
+"20150806,2.02E+14,1,""28,070"",,,Deposit Accepted,MR FFF,""123,440,914"""
+"20150806,2.02E+14,,,1,123340158,Automatic Withdrawal,CCC Corporation,""100,756"""
+"20150806,2.02E+14,,,,756,Fees,,""100,000"""
