@@ -3,23 +3,23 @@
 import math
 import string
 import re
+import operator
 
-# TODO named tuple?
-# TODO: to clarify priorities
-OPERATORS = {'+': (1, lambda x, y: x + y),
-             '-': (1, lambda x, y: x - y),
-             '*': (2, lambda x, y: x * y),
-             '/': (2, lambda x, y: x / y),
-             'sin': (0, lambda x: math.sin(x))
-             # '//': (2, lambda x, y: x // y),
-             # '%': (2, lambda x, y: x % y),
-             # '^': (2, lambda x, y: x ^ y),
-             # '<': (2, lambda x, y: x < y),
-             # '<=': (2, lambda x, y: x <= y),
-             # '>': (2, lambda x, y: x > y),
-             # '>=': (2, lambda x, y: x >= y),
-             # '==': (2, lambda x, y: x == y),
-             # '!=': (2, lambda x, y: x != y),
+
+OPERATORS = {'+': (1, operator.add),
+             '-': (1, operator.sub),
+             '*': (2, operator.mul),
+             '/': (2, operator.div),
+             '//': (2, operator.floordiv),
+             '%': (2, operator.imod),
+             '^': (3, operator.ipow),
+             '<': (0, operator.lt),
+             '<=': (0, operator.le),
+             '>': (0, operator.gt),
+             '>=': (0, operator.ge),
+             '==': (0, operator.eq),
+             '!=': (0, operator.ne),
+             'sin': (3, math.sin)
              }
 
 ADD_OPERATORS = ('(', ')')  # additional operators
@@ -28,7 +28,7 @@ DOUBLE_OPER_PART1 = ('/', '<', '>', '=', '!',)
 DOUBLE_OPER_PART2 = ('/', '=',)
 
 
-# TODO how to parse comlplicated functions like sin(sin(0.3))
+# TODO how to parse complicated functions like sin(sin(0.3))
 # TODO errors processing here?
 def parse(formula_string):
     number = ''
@@ -39,11 +39,11 @@ def parse(formula_string):
         # 1. finding function
         if elem in string.ascii_lowercase or is_function is True:
             is_function = True
-            if elem != '(':  # try to find the end of the name of the math function
+            if elem != ')':  # try to find the end of the name of the math function
                 function += elem
             else:
+                function += elem  # to add ')' at the end of the function
                 yield function
-                yield '('
                 function = ''
                 is_function = False
         else:
@@ -67,14 +67,44 @@ def parse(formula_string):
         raise ValueError('Incorrect formula: operator at the end of the formula!')
 
 
+value = '1+sin(1+2)'
+
 parsed_list = []
-for element in parse('1+5*4'):
+for element in parse(value):
     parsed_list.append(element)
-print parsed_list
+print('Parsed list is: >> {}'.format(parsed_list))
 
 
-# [7.0, '*', 5.5, '+', 3.0]
-def shunting_yard(parsed_formula):
+def calc_functions_in_list(parsed_list):
+    for elem in parsed_list:
+        if isinstance(elem, str) and '(' in elem and ')' in elem:
+            parse_function = re.split('\(|\)', elem)
+            function_name = parse_function[0]
+            function_argument = parse_function[1]
+            try:
+                if function_name == 'abs':
+                    value_of_function = abs(float(function_argument))
+                elif function_name == 'round':
+                    value_of_function = round(float(function_argument))
+                else:
+                    value_of_function = getattr(math, function_name)(float(function_argument))
+                yield value_of_function
+            except AttributeError:
+                raise ValueError('Error in formula_string! Function: {} is not exist in libraries!'.format(function_name))
+            except ValueError:
+                raise ValueError('Error in formula_string! Incorrect argument in function {}(): {}!'.format(function_name,
+                                                                                                            function_argument))
+        else:
+            yield elem
+
+
+calculated_list = []
+for elem in calc_functions_in_list(parsed_list):
+    calculated_list.append(elem)
+print('Calculated list is: >> {}'.format(calculated_list))
+
+
+def sort_to_polish(parsed_formula):
     stack = []  # в качестве стэка используем список
     for token in parsed_formula:
         # если элемент - оператор, то отправляем дальше все операторы из стека,
@@ -104,14 +134,14 @@ def shunting_yard(parsed_formula):
 
 
 polish_list = []
-for element in shunting_yard(parsed_list):
+for element in sort_to_polish(calculated_list):
     polish_list.append(element)
-print polish_list
+print('Polish list is: >> {}'.format(polish_list))
 
 
-def calc(polish):
+def calc(polish_list):
     stack = []
-    for token in polish:
+    for token in polish_list:
         if token in OPERATORS:  # если приходящий элемент - оператор,
             y, x = stack.pop(), stack.pop()  # забираем 2 числа из стека
             stack.append(OPERATORS[token][1](x, y))  # вычисляем оператор, возвращаем в стек
@@ -122,4 +152,5 @@ def calc(polish):
 
 result = calc(polish_list)
 
-print result
+print('Result is: >> {}'.format(result))
+
