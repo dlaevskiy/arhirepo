@@ -19,60 +19,78 @@ OPERATORS = {'+': (1, operator.add),
              '>=': (0, operator.ge),
              '==': (0, operator.eq),
              '!=': (0, operator.ne),
-             'sin': (3, math.sin)
              }
 
-ADD_OPERATORS = ('(', ')')  # additional operators
+PARENTHESES = ('(', ')')
 
 DOUBLE_OPER_PART1 = ('/', '<', '>', '=', '!',)
 DOUBLE_OPER_PART2 = ('/', '=',)
 
+BUILT_IN_FUNCTIONS = ('abs', 'round')
+MATH_FUNCTIONS = tuple([func for func in dir(math) if not func.startswith('_')])
+ALL_FUNCTIONS = BUILT_IN_FUNCTIONS + MATH_FUNCTIONS
+
+
+ALL_OPERATORS = tuple(OPERATORS.keys())
+ALLOWED_TOKENS = ALL_OPERATORS + tuple(string.letters) + tuple(string.digits) + PARENTHESES + ('.',)
+
+
+value = '1=>2'
+
 
 # TODO how to parse complicated functions like sin(sin(0.3))
-# TODO errors processing here?
 def parse(formula_string):
     number = ''
-    operator = ''
+    operator_ = ''
     function = ''
     is_function = False
-    for elem in formula_string.strip():
-        # 1. finding function
-        if elem in string.ascii_lowercase or is_function is True:
+    for el in formula_string.strip():
+        # finding function
+        if el in string.ascii_lowercase or is_function is True:
             is_function = True
-            if elem != ')':  # try to find the end of the name of the math function
-                function += elem
+            if el != ')':  # try to find the end of the name of the math function
+                function += el
             else:
-                function += elem  # to add ')' at the end of the function
+                function += el  # to add ')' at the end of the function
                 yield function
                 function = ''
                 is_function = False
         else:
-            if elem in string.digits + '.':  # если символ - цифра, то собираем число
-                number += elem
+            if el in string.digits + '.':  # если символ - цифра, то собираем число
+                number += el
             elif number:  # если символ не цифра, то выдаём собранное число и начинаем собирать заново
                 yield float(number)
                 number = ''
-            if elem in OPERATORS or elem in ADD_OPERATORS or elem in DOUBLE_OPER_PART1:
-                if elem in DOUBLE_OPER_PART1 and not operator:
-                    operator += elem
-                elif elem in DOUBLE_OPER_PART2 and operator:
-                    operator += elem
-                    yield operator
-                    operator = ''
-                else:
-                    yield elem
+            if el in OPERATORS or el in PARENTHESES or el in DOUBLE_OPER_PART1:
+                if el in DOUBLE_OPER_PART1 and not operator_:
+                    operator_ += el
+                elif el in DOUBLE_OPER_PART2 and operator_:
+                    operator_ += el
+                    yield operator_
+                    operator_ = ''
+            elif el in PARENTHESES:
+                yield el
     if number:  # если в конце строки есть число, выдаём его
         yield float(number)
-    if operator:
-        raise ValueError('Incorrect formula: operator at the end of the formula!')
+    # if operator_:
+    #     raise ValueError('Incorrect formula: operator at the end of the formula!')
 
-
-value = '1+sin(1+2)'
 
 parsed_list = []
 for element in parse(value):
     parsed_list.append(element)
 print('Parsed list is: >> {}'.format(parsed_list))
+
+
+def validate_parsed_list(parsed_list):
+    if not parsed_list:
+        raise ValueError('Formula can not be empty!')
+    if parsed_list[-1] in ALL_OPERATORS:
+        raise ValueError('Operator at the end of the formula: "{}" '.format(parsed_list[-1]))
+    COUNT = 0  # counter for parentheses
+
+
+# validate_parsed_list(parsed_list)
 
 
 def calc_functions_in_list(parsed_list):
@@ -143,8 +161,11 @@ def calc(polish_list):
     stack = []
     for token in polish_list:
         if token in OPERATORS:  # если приходящий элемент - оператор,
-            y, x = stack.pop(), stack.pop()  # забираем 2 числа из стека
-            stack.append(OPERATORS[token][1](x, y))  # вычисляем оператор, возвращаем в стек
+            try:
+                y, x = stack.pop(), stack.pop()  # забираем 2 числа из стека
+                stack.append(OPERATORS[token][1](x, y))  # вычисляем оператор, возвращаем в стек
+            except IndexError:
+                raise ValueError('Incorrect formula! {}'.format(value))
         else:
             stack.append(token)
     return stack[0]  # результат вычисления - единственный элемент в стеке
