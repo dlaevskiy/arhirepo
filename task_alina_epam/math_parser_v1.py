@@ -2,7 +2,6 @@
 
 import math
 import string
-import re
 import operator
 
 
@@ -19,6 +18,8 @@ OPERATORS = {'+': (1, operator.add),
              '>=': (0, operator.ge),
              '==': (0, operator.eq),
              '!=': (0, operator.ne),
+             'sin': (3, math.sin),
+             'cos': (3, math.cos),
              }
 
 PARENTHESES = ('(', ')')
@@ -27,7 +28,9 @@ DOUBLE_OPER_PART1 = ('/', '<', '>', '=', '!',)
 DOUBLE_OPER_PART2 = ('/', '=',)
 
 BUILT_IN_FUNCTIONS = ('abs', 'round')
-MATH_FUNCTIONS = tuple([func for func in dir(math) if not func.startswith('_')])
+MATH_FUNCTIONS = tuple([func for func in dir(math) if not func.startswith('_') and func not in ('e', 'pi')])
+
+print MATH_FUNCTIONS
 ALL_FUNCTIONS = BUILT_IN_FUNCTIONS + MATH_FUNCTIONS
 
 
@@ -35,9 +38,10 @@ ALL_OPERATORS = tuple(OPERATORS.keys())
 ALLOWED_TOKENS = ALL_OPERATORS + tuple(string.letters) + tuple(string.digits) + PARENTHESES + ('.',)
 
 
-value = '1=>2'
+value = 'sin(sin(1))+cos(12*sin(13))'
 
 # value_of_function = getattr(math, function_name)(float(function_argument))
+
 
 def matched_parentheses(el, count):
     if el == "(":
@@ -48,8 +52,11 @@ def matched_parentheses(el, count):
         return True
     return False
 
-
+# TODO log10
+# TODO log1p
 # TODO how to parse complicated functions like sin(sin(0.3))
+
+
 def parse(formula_string):
     number = ''
     op = ''
@@ -104,6 +111,7 @@ for element in parse(value):
 print('Parsed list is: >> {}'.format(parsed_list))
 
 
+# TODO finish him
 def validate_parsed_list(parsed_list):
     if not parsed_list:
         raise ValueError('Formula can not be empty!')
@@ -125,6 +133,8 @@ def sort_to_polish(parsed_formula):
         if token in OPERATORS:
             while stack and stack[-1] != "(" and OPERATORS[token][0] <= OPERATORS[stack[-1]][0]:
                 yield stack.pop()
+            stack.append(token)
+        elif token in ALL_FUNCTIONS:
             stack.append(token)
         elif token == ")":
             # если элемент - закрывающая скобка, выдаём все элементы из стека, до открывающей скобки,
@@ -153,7 +163,10 @@ print('Polish list is: >> {}'.format(polish_list))
 def calc(polish_list):
     stack = []
     for token in polish_list:
-        if token in OPERATORS:  # если приходящий элемент - оператор,
+        if token in ALL_FUNCTIONS:
+            x = stack.pop()  # забираем 1 числo из стека
+            stack.append(getattr(math, token)(x))  # вычисляем оператор, возвращаем в стек
+        elif token in OPERATORS:  # если приходящий элемент - оператор,
             try:
                 y, x = stack.pop(), stack.pop()  # забираем 2 числа из стека
                 stack.append(OPERATORS[token][1](x, y))  # вычисляем оператор, возвращаем в стек
@@ -164,7 +177,10 @@ def calc(polish_list):
     return stack[0]  # результат вычисления - единственный элемент в стеке
 
 
-# result = calc(polish_list)
-#
-# print('Result is: >> {}'.format(result))
+result = calc(polish_list)
+
+print math.sin(math.sin(1))+math.cos(12*math.sin(13))
+
+print('Result is: >> {}'.format(result))
+
 
