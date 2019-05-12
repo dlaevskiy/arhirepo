@@ -37,6 +37,7 @@ ALLOWED_TOKENS = ALL_OPERATORS + tuple(string.letters) + tuple(string.digits) + 
 
 value = '1=>2'
 
+# value_of_function = getattr(math, function_name)(float(function_argument))
 
 def matched_parentheses(el, count):
     if el == "(":
@@ -51,47 +52,50 @@ def matched_parentheses(el, count):
 # TODO how to parse complicated functions like sin(sin(0.3))
 def parse(formula_string):
     number = ''
-    operator_ = ''
+    op = ''
     function = ''
-    is_function = False
-    count = 0
     for el in formula_string.strip():
-        # finding function
-        if el in string.ascii_lowercase:
-            if operator_:
-                yield operator_
-                operator_ = ''
-            is_function = True
+        if el in string.letters:
             function += el
-        elif is_function is True:
-            if el != "(":
-                pass
-            elif el == "(":
-                count += 1
-            elif el == ")":
-                count -= 1
-            if count == 0:
-                function += el
-                yield function
-                function = ''
-                is_function = False
-            else:
-                function += el
-        else:
-            if el in string.digits + '.':  # если символ - цифра, то собираем число
-                number += el
-            elif number:  # если символ не цифра, то выдаём собранное число и начинаем собирать заново
+            if op:
+                yield op
+                op = ''
+            if number:
                 yield float(number)
                 number = ''
-            if el in OPERATORS or el in DOUBLE_OPER_PART1:
-                operator_ += el
-            elif operator_:
-                yield operator_
-                operator_ = ''
-            if el in PARENTHESES:
-                yield el
-    if number:  # если в конце строки есть число, выдаём его
+        elif el in string.digits + '.':
+            number += el
+            if op:
+                yield op
+                op = ''
+            if function:
+                yield function
+                function = ''
+        elif el in OPERATORS or el in DOUBLE_OPER_PART1:
+            op += el
+            if number:
+                yield float(number)
+                number = ''
+            if function:
+                yield function
+                function = ''
+        elif el in PARENTHESES:
+            if number:
+                yield float(number)
+                number = ''
+            if function:
+                yield function
+                function = ''
+            if op:
+                yield op
+                op = ''
+            yield el
+    if function:
+        yield function
+    if number:
         yield float(number)
+    if op:
+        yield op
 
 
 parsed_list = []
@@ -109,35 +113,6 @@ def validate_parsed_list(parsed_list):
 
 
 # validate_parsed_list(parsed_list)
-
-
-def calc_functions_in_list(parsed_list):
-    for elem in parsed_list:
-        if isinstance(elem, str) and '(' in elem and ')' in elem:
-            parse_function = re.split('\(|\)', elem)
-            function_name = parse_function[0]
-            function_argument = parse_function[1]
-            try:
-                if function_name == 'abs':
-                    value_of_function = abs(float(function_argument))
-                elif function_name == 'round':
-                    value_of_function = round(float(function_argument))
-                else:
-                    value_of_function = getattr(math, function_name)(float(function_argument))
-                yield value_of_function
-            except AttributeError:
-                raise ValueError('Error in formula_string! Function: {} is not exist in libraries!'.format(function_name))
-            except ValueError:
-                raise ValueError('Error in formula_string! Incorrect argument in function {}(): {}!'.format(function_name,
-                                                                                                            function_argument))
-        else:
-            yield elem
-
-
-calculated_list = []
-for elem in calc_functions_in_list(parsed_list):
-    calculated_list.append(elem)
-print('Calculated list is: >> {}'.format(calculated_list))
 
 
 def sort_to_polish(parsed_formula):
@@ -170,7 +145,7 @@ def sort_to_polish(parsed_formula):
 
 
 polish_list = []
-for element in sort_to_polish(calculated_list):
+for element in sort_to_polish(parsed_list):
     polish_list.append(element)
 print('Polish list is: >> {}'.format(polish_list))
 
@@ -189,7 +164,7 @@ def calc(polish_list):
     return stack[0]  # результат вычисления - единственный элемент в стеке
 
 
-result = calc(polish_list)
-
-print('Result is: >> {}'.format(result))
+# result = calc(polish_list)
+#
+# print('Result is: >> {}'.format(result))
 
