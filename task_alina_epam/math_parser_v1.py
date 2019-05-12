@@ -38,42 +38,60 @@ ALLOWED_TOKENS = ALL_OPERATORS + tuple(string.letters) + tuple(string.digits) + 
 value = '1=>2'
 
 
+def matched_parentheses(el, count):
+    if el == "(":
+        count += 1
+    elif el == ")":
+        count -= 1
+    if count == 0:
+        return True
+    return False
+
+
 # TODO how to parse complicated functions like sin(sin(0.3))
 def parse(formula_string):
     number = ''
     operator_ = ''
     function = ''
     is_function = False
+    count = 0
     for el in formula_string.strip():
         # finding function
-        if el in string.ascii_lowercase or is_function is True:
+        if el in string.ascii_lowercase:
+            if operator_:
+                yield operator_
+                operator_ = ''
             is_function = True
-            if el != ')':  # try to find the end of the name of the math function
+            function += el
+        elif is_function is True:
+            if el != "(":
+                pass
+            elif el == "(":
+                count += 1
+            elif el == ")":
+                count -= 1
+            if count == 0:
                 function += el
-            else:
-                function += el  # to add ')' at the end of the function
                 yield function
                 function = ''
                 is_function = False
+            else:
+                function += el
         else:
             if el in string.digits + '.':  # если символ - цифра, то собираем число
                 number += el
             elif number:  # если символ не цифра, то выдаём собранное число и начинаем собирать заново
                 yield float(number)
                 number = ''
-            if el in OPERATORS or el in PARENTHESES or el in DOUBLE_OPER_PART1:
-                if el in DOUBLE_OPER_PART1 and not operator_:
-                    operator_ += el
-                elif el in DOUBLE_OPER_PART2 and operator_:
-                    operator_ += el
-                    yield operator_
-                    operator_ = ''
-            elif el in PARENTHESES:
+            if el in OPERATORS or el in DOUBLE_OPER_PART1:
+                operator_ += el
+            elif operator_:
+                yield operator_
+                operator_ = ''
+            if el in PARENTHESES:
                 yield el
     if number:  # если в конце строки есть число, выдаём его
         yield float(number)
-    # if operator_:
-    #     raise ValueError('Incorrect formula: operator at the end of the formula!')
 
 
 parsed_list = []

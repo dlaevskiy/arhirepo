@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" line="171" />
-    <bookmark url="file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" line="84" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" line="189" />
+    <bookmark url="file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" line="102" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8920d8a9-fe95-4c4d-abc0-982eb3204a44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/task_alina_epam/unittests_calculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_alina_epam/unittests_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/task_alina_epam/unittests_calculator.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +25,7 @@
     <SUITE FILE_PATH="coverage/train$afdadf.coverage" NAME="afdadf Coverage Results" MODIFIED="1557495564034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$math_parser_v1.coverage" NAME="math_parser_v1 Coverage Results" MODIFIED="1557649732147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$hi4.coverage" NAME="hi4 Coverage Results" MODIFIED="1556121943842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_calculator_py.coverage" NAME="Unittests in unittests_calculator.py Coverage Results" MODIFIED="1557650838856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
+    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_calculator_py.coverage" NAME="Unittests in unittests_calculator.py Coverage Results" MODIFIED="1557656770707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$hi2.coverage" NAME="hi2 Coverage Results" MODIFIED="1553157684283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CoverageViewManager">
@@ -37,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="55" column="29" lean-forward="true" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+            <state relative-caret-position="261">
+              <caret line="53" column="18" lean-forward="true" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
               <folding>
                 <element signature="e#32#43#0" expanded="true" />
               </folding>
@@ -49,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/task_alina_epam/unittests_calculator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="37" lean-forward="true" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+            <state relative-caret-position="62">
+              <caret line="49" column="69" lean-forward="true" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -70,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-762174762/math.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="59" lean-forward="true" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
+            <state relative-caret-position="126">
+              <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -327,41 +326,44 @@
       <workItem from="1554463665793" duration="877000" />
       <workItem from="1554894283829" duration="4733000" />
       <workItem from="1555515157061" duration="33225000" />
-      <workItem from="1556520770132" duration="41044000" />
+      <workItem from="1556520770132" duration="48195000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Doctests_in_ast2 - 2019.05.10 at 17h 05m 16s.xml">
-      <configuration name="Doctests in ast2" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Doctests_in_ast2 - 2019.05.10 at 17h 05m 53s.xml">
-      <configuration name="Doctests in ast2" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Doctests_in_ast2 - 2019.05.10 at 17h 06m 04s.xml">
-      <configuration name="Doctests in ast2" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Doctests_in_ast2 - 2019.05.10 at 17h 19m 08s.xml">
-      <configuration name="Doctests in ast2" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Doctests_in_ast2 - 2019.05.10 at 17h 19m 15s.xml">
-      <configuration name="Doctests in ast2" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Doctests_in_ast2 - 2019.05.10 at 17h 19m 24s.xml">
-      <configuration name="Doctests in ast2" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Doctests_in_ast2 - 2019.05.10 at 17h 19m 27s.xml">
-      <configuration name="Doctests in ast2" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 11h 46m 43s.xml">
+    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 13h 13m 18s.xml">
       <configuration name="Unittests in unittests_calculator.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 11h 47m 19s.xml">
+    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 13h 13m 30s.xml">
+      <configuration name="Unittests in unittests_calculator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 13h 14m 19s.xml">
+      <configuration name="Unittests in unittests_calculator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 13h 20m 52s.xml">
+      <configuration name="Unittests in unittests_calculator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 13h 21m 02s.xml">
+      <configuration name="Unittests in unittests_calculator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 13h 21m 18s.xml">
+      <configuration name="Unittests in unittests_calculator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 13h 22m 41s.xml">
+      <configuration name="Unittests in unittests_calculator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 13h 23m 29s.xml">
+      <configuration name="Unittests in unittests_calculator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 13h 24m 28s.xml">
+      <configuration name="Unittests in unittests_calculator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calculator_py - 2019.05.12 at 13h 26m 10s.xml">
       <configuration name="Unittests in unittests_calculator.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117880000" />
+    <option name="totallyTimeSpent" value="125031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -372,8 +374,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2688889" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.25333333" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.05111111" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.18222222" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -430,16 +432,6 @@
           <url>file://$PROJECT_DIR$/task_alina_epam/ast_task.py</url>
           <line>41</line>
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py</url>
-          <line>42</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py</url>
-          <line>48</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -636,20 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-762174762/math.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="59" lean-forward="true" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Python27/Lib/string.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-762174762/operator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -674,10 +652,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-762174762/math.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Python27/Lib/string.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/task_alina_epam/unittests_calculator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="37" lean-forward="true" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        <state relative-caret-position="62">
+          <caret line="49" column="69" lean-forward="true" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -686,8 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="55" column="29" lean-forward="true" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+        <state relative-caret-position="261">
+          <caret line="53" column="18" lean-forward="true" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
           <folding>
             <element signature="e#32#43#0" expanded="true" />
           </folding>
