@@ -30,7 +30,6 @@ DOUBLE_OPER_PART2 = ('/', '=',)
 BUILT_IN_FUNCTIONS = ('abs', 'round')
 MATH_FUNCTIONS = tuple([func for func in dir(math) if not func.startswith('_') and func not in ('e', 'pi')])
 
-print MATH_FUNCTIONS
 ALL_FUNCTIONS = BUILT_IN_FUNCTIONS + MATH_FUNCTIONS
 
 
@@ -39,8 +38,6 @@ ALLOWED_TOKENS = ALL_OPERATORS + tuple(string.letters) + tuple(string.digits) + 
 
 
 value = 'sin(sin(1))+cos(12*sin(13))'
-
-# value_of_function = getattr(math, function_name)(float(function_argument))
 
 
 def matched_parentheses(el, count):
@@ -54,7 +51,6 @@ def matched_parentheses(el, count):
 
 # TODO log10
 # TODO log1p
-# TODO how to parse complicated functions like sin(sin(0.3))
 
 
 def parse(formula_string):
