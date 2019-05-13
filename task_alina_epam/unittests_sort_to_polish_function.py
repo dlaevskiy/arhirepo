@@ -6,13 +6,13 @@ from math_parser_v1 import sort_to_polish
 class TestSorting(unittest.TestCase):
 
     # Unary operators
-    def test1(self):  # in online polish calc result is [0.0, 13.0, '-']
+    def test1(self):
         list_ = []
         for el in sort_to_polish(['-', 13.0]):
             list_.append(el)
         self.assertEqual(list_, [13.0, '-'])
 
-    def test2(self):  # in online polish calc result is [6.0, 0.0, 13.0, '-', '-']
+    def test2(self):
         list_ = []
         for el in sort_to_polish([6.0, '-', '(', '-', 13.0, ')']):
             list_.append(el)
