@@ -20,13 +20,13 @@ class TestSorting(unittest.TestCase):
 
     def test3(self):
         list_ = []
-        for el in sort_to_polish([1.0, '---', 1.0]):
+        for el in sort_to_polish([1.0, '-', '-', '-', 1.0]):
             list_.append(el)
         self.assertEqual(list_, [1.0, '-', '-', 1.0, '-'])
 
     def test4(self):
         list_ = []
-        for el in sort_to_polish(['-+---+-', 1.0]):
+        for el in sort_to_polish(['-', '+', '-', '-', '-', '+', '-', 1.0]):
             list_.append(el)
         self.assertEqual(list_, [0.0, '-', '+', '-', '-', '-', '+', 1.0, '-'])
 
@@ -233,7 +233,7 @@ class TestSorting(unittest.TestCase):
             list_.append(el)
         self.assertEqual(list_, [2.0, 2.0, 2.0, '^', 2.0, 2.0, '^', '*', '^'])
 
-    def test38(self):  # e e e 23.0 sin,45.0 ^ ^ log ^ 3.0 e 0 e - ^ log10 + cos + sin
+    def test38(self):
         list_ = []
         for el in sort_to_polish(['sin', '(', 'e', '^', 'log', '(', 'e', '^', 'e', '^', 'sin', '(', 23.0, ')', ',', 45.0, ')', '+', 'cos', '(', 3.0, '+', 'log10', '(', 'e', '^', '-', 'e', ')', ')', ')']):
             list_.append(el)
@@ -244,116 +244,116 @@ class TestSorting(unittest.TestCase):
         list_ = []
         for el in sort_to_polish([]):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test40(self):
         list_ = []
         for el in sort_to_polish(['+']):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test41(self):
         list_ = []
         for el in sort_to_polish([1.0, '-']):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test42(self):
         list_ = []
         for el in sort_to_polish(['ee']):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test43(self):
         list_ = []
         for el in sort_to_polish(['==', 7.0]):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test44(self):
         list_ = []
         for el in sort_to_polish([1.0, '+', 2.0, '(', 3.0, '*', 4.0, ')', ')']):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test45(self):
         list_ = []
         for el in sort_to_polish(['(', '(', 1.0, '+', 2.0, ')']):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test46(self):
         list_ = []
         for el in sort_to_polish(['log100', '(', 100.0, ')']):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test47(self):
         list_ = []
-        for el in sort_to_polish(['------']):
+        for el in sort_to_polish(['-', '-', '-', '-', '-', '-']):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test48(self):
         list_ = []
         for el in sort_to_polish([6.0, '**', 6.0]):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test49(self):
         list_ = []
         for el in sort_to_polish(['(', '(', '(', '(', '(', ]):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test50(self):
         list_ = []
         for el in sort_to_polish(['pow', '(', 2.0, 3.0, 4.0, ')']):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     # Self-made cases
     def test51(self):
         list_ = []
-        for el in sort_to_polish([77.0, '====', 77.0]):
+        for el in sort_to_polish([77.0, '==', '==', 77.0]):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test52(self):
         list_ = []
         for el in sort_to_polish([100.0, '/', 3.0]):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, [100.0, 3.0, '/'])
 
     def test53(self):
         list_ = []
         for el in sort_to_polish([100.0, '=', 3.0]):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, ['Error: error message'])
 
     def test54(self):
         list_ = []
         for el in sort_to_polish([100.0, '+', 3.0]):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, [100.0, 3.0, '+'])
 
     def test55(self):
         list_ = []
         for el in sort_to_polish([100.0, '//', 3.0]):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, [100.0, 3.0, '//'])
 
     def test56(self):
         list_ = []
         for el in sort_to_polish(['sin', '(', 'sin', '(', 1.0, ')', ')']):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, [1.0, 'sin', 'sin'])
 
     def test57(self):
         list_ = []
         for el in sort_to_polish(['sin', '(', 'sin', '(', 1.0, ')', ')', '+', 1.0, '+', 'sin', '(', 1.0, ')']):
             list_.append(el)
-        self.assertEqual(list_, [])
+        self.assertEqual(list_, [1.0, 'sin', 'sin', 1.0, '+', 1.0, 'sin', '+'])
 
 if __name__ == '__main__':
     unittest.main()
