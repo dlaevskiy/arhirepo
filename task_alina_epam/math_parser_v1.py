@@ -5,39 +5,46 @@ import string
 import operator
 
 
-OPERATORS = {'+': (1, operator.add),
-             '-': (1, operator.sub),
-             '*': (2, operator.mul),
-             '/': (2, operator.div),
-             '//': (2, operator.floordiv),
-             '%': (2, operator.imod),
-             '^': (3, operator.ipow),
-             '<': (0, operator.lt),
-             '<=': (0, operator.le),
-             '>': (0, operator.gt),
-             '>=': (0, operator.ge),
-             '==': (0, operator.eq),
-             '!=': (0, operator.ne),
-             'sin': (3, math.sin),
-             'cos': (3, math.cos),
-             }
+UNARY_OPERATORS = {'+': (1, operator.add),
+                   '-': (1, operator.sub),
+                   }
+
+BINARY_OPERATORS = {'*': (2, operator.mul),
+                    '/': (2, operator.div),
+                    '//': (2, operator.floordiv),
+                    '%': (2, operator.imod),
+                    '^': (3, operator.ipow),
+                    '<': (0, operator.lt),
+                    '<=': (0, operator.le),
+                    '>': (0, operator.gt),
+                    '>=': (0, operator.ge),
+                    '==': (0, operator.eq),
+                    '!=': (0, operator.ne),
+                    'sin': (3, math.sin),  # TODO remove it from here
+                    'cos': (3, math.cos),
+                    }
+
+OPERATORS = UNARY_OPERATORS.copy()
+OPERATORS.update(BINARY_OPERATORS)
 
 PARENTHESES = ('(', ')')
 
-DOUBLE_OPER_PART1 = ('/', '<', '>', '=', '!',)
-DOUBLE_OPER_PART2 = ('/', '=',)
+OPERATORS_BEGIN = ('+', '-', '*', '/', '%', '^', '<', '>', '=', '!',)
+# DOUBLE_OPER_PART2 = ('/', '=',)
 
 BUILT_IN_FUNCTIONS = ('abs', 'round')
 MATH_FUNCTIONS = tuple([func for func in dir(math) if not func.startswith('_') and func not in ('e', 'pi')])
+MATH_CONSTS = ('e', 'pi')
 
 ALL_FUNCTIONS = BUILT_IN_FUNCTIONS + MATH_FUNCTIONS
-
+ALL_FUNCTIONS_AND_CONSTS = MATH_FUNCTIONS + MATH_CONSTS
 
 ALL_OPERATORS = tuple(OPERATORS.keys())
-ALLOWED_TOKENS = ALL_OPERATORS + tuple(string.letters) + tuple(string.digits) + PARENTHESES + ('.',)
+ALLOWED_TOKENS = ALL_OPERATORS + tuple(string.letters) + tuple(string.digits) + PARENTHESES + ('.', ',', ' ')
 
 
-value = 'sin(sin(1))+cos(12*sin(13))'
+# value = 'sin(sin(1))+cos(12*sin(13))'
+value = '1+*2'
 
 
 def matched_parentheses(el, count):
@@ -45,19 +52,19 @@ def matched_parentheses(el, count):
         count += 1
     elif el == ")":
         count -= 1
-    if count == 0:
-        return True
-    return False
+    return count
+
 
 # TODO log10
 # TODO log1p
-
-
+# TODO how to parse functions with two arguments, were comma is present (leave comma?)
 def parse(formula_string):
     number = ''
     op = ''
     function = ''
     for el in formula_string.strip():
+        if el not in ALLOWED_TOKENS:
+            raise ValueError('Formula contains incorrect symbol "{}"'.format(el))
         if el in string.letters:
             function += el
             if op:
@@ -74,7 +81,7 @@ def parse(formula_string):
             if function:
                 yield function
                 function = ''
-        elif el in OPERATORS or el in DOUBLE_OPER_PART1:
+        elif el in OPERATORS_BEGIN:
             op += el
             if number:
                 yield float(number)
@@ -107,18 +114,38 @@ for element in parse(value):
 print('Parsed list is: >> {}'.format(parsed_list))
 
 
-# TODO finish him
+# TODO how to process pow(2, 3, 4) - incorrect number of arguments
 def validate_parsed_list(parsed_list):
     if not parsed_list:
         raise ValueError('Formula can not be empty!')
     if parsed_list[-1] in ALL_OPERATORS:
         raise ValueError('Operator at the end of the formula: "{}" '.format(parsed_list[-1]))
-    COUNT = 0  # counter for parentheses
+    if parsed_list[0] in BINARY_OPERATORS:
+        raise ValueError('Formula can not start with binary operator "{}"'.format(parsed_list[0]))
+    counter = 0  # counter for parentheses
+    was_number = False
+    previous_el = ''
+    for el in parsed_list:
+        counter = matched_parentheses(el, counter)
+        if el[0] in string.letters():
+            if el.lower() not in ALL_FUNCTIONS_AND_CONSTS:
+                raise ValueError('Formula contains incorrect function(s) or constant(s): {}'.format(el))
+        if el[0] in OPERATORS:
+            pass
+        if isinstance(el, float) and was_number is False:
+            was_number = True
+        if el in BINARY_OPERATORS and previous_el in BINARY_OPERATORS:
+            raise ValueError('Two or more binary operators in a row in formula!')
+        previous_el = el
+    if counter != 0:
+        raise ValueError('Wrong number opened or closed parentheses in formula!')
+    if was_number is False:
+        raise ValueError('Formula does not contains numbers!')
 
 
 # validate_parsed_list(parsed_list)
 
-
+# TODO pi and e how to
 def sort_to_polish(parsed_formula):
     stack = []  # в качестве стэка используем список
     for token in parsed_formula:
@@ -130,7 +157,7 @@ def sort_to_polish(parsed_formula):
             while stack and stack[-1] != "(" and OPERATORS[token][0] <= OPERATORS[stack[-1]][0]:
                 yield stack.pop()
             stack.append(token)
-        elif token in ALL_FUNCTIONS:
+        elif token in ALL_FUNCTIONS:  # TODO why here?
             stack.append(token)
         elif token == ")":
             # если элемент - закрывающая скобка, выдаём все элементы из стека, до открывающей скобки,
@@ -159,6 +186,10 @@ print('Polish list is: >> {}'.format(polish_list))
 def calc(polish_list):
     stack = []
     for token in polish_list:
+        try:
+            token = token.lower()
+        except AttributeError:
+            pass
         if token in ALL_FUNCTIONS:
             x = stack.pop()  # забираем 1 числo из стека
             stack.append(getattr(math, token)(x))  # вычисляем оператор, возвращаем в стек

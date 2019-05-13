@@ -3,7 +3,7 @@ import unittest
 from math_parser_v1 import parse
 
 
-class TestParcing(unittest.TestCase):
+class TestParsing(unittest.TestCase):
 
     # Unary operators
     def test1(self):
@@ -207,25 +207,33 @@ class TestParcing(unittest.TestCase):
         list_ = []
         for el in parse('(2.0^(pi/pi+e/e+2.0^0.0))^(1.0/3.0)'):
             list_.append(el)
-        self.assertEqual(list_, ['(', 2.0, '^', '(', 'pi', '/', 'pi', '+', 'e', '/', 'e', '+', 2.0, '^', 0.0, ')', ')', '^', '(', 1.0, '/', 3.0, ')'])
+        self.assertEqual(list_, ['(', 2.0, '^', '(', 'pi', '/', 'pi', '+', 'e', '/', 'e', '+', 2.0, '^', 0.0,
+                                 ')', ')', '^', '(', 1.0, '/', 3.0, ')'])
 
     def test34(self):  # how to process comma in log
         list_ = []
         for el in parse('sin(pi/2^1) + log(1*4+2^2+1, 3^2)'):
             list_.append(el)
-        self.assertEqual(list_, ['sin', '(', 'pi', '/', 2.0, '^', 1.0, ')', '+', 'log', '(', 1.0, '*', 4.0, '+', 2.0, '^', 2.0, '+', 1.0, ',', 3.0, '^', 2.0, ')'])
+        self.assertEqual(list_, ['sin', '(', 'pi', '/', 2.0, '^', 1.0, ')', '+', 'log', '(', 1.0, '*', 4.0, '+',
+                                 2.0, '^', 2.0, '+', 1.0, ',', 3.0, '^', 2.0, ')'])
 
     def test35(self):  # why there are no parentheses after division in log
         list_ = []
         for el in parse('10*e^0*log10(.4 -5/ -0.1-10) - -abs(-53/10) + -5'):
             list_.append(el)
-        self.assertEqual(list_, [10.0, '*', 'e', '^', 0.0, '*', 'log10', '(', 0.4, '-', 5.0, '/', '-', 0.1, '-', 10.0, ')', '--', 'abs', '(', '-', 53.0, '/', 10.0, ')', '+-', 5.0])
+        self.assertEqual(list_, [10.0, '*', 'e', '^', 0.0, '*', 'log10', '(', 0.4, '-', 5.0, '/', '-', 0.1, '-',
+                                 10.0, ')', '--', 'abs', '(', '-', 53.0, '/', 10.0, ')', '+-', 5.0])
 
     def test36(self):
         list_ = []
-        for el in parse('sin(-cos(-sin(3.0)-cos(-sin(-3.0*5.0)-sin(cos(log10(43.0))))+cos(sin(sin(34.0-2.0^2.0))))--cos(1.0)--cos(0.0)^3.0)'):
+        for el in parse('sin(-cos(-sin(3.0)-cos(-sin(-3.0*5.0)-sin(cos(log10(43.0))))+'
+                        'cos(sin(sin(34.0-2.0^2.0))))--cos(1.0)--cos(0.0)^3.0)'):
             list_.append(el)
-        self.assertEqual(list_, ['sin', '(', '-', 'cos', '(', '-', 'sin', '(', 3.0, ')', '-', 'cos', '(', '-', 'sin', '(', '-', 3.0, '*', 5.0, ')', '-', 'sin', '(', 'cos', '(', 'log10', '(', 43.0, ')', ')', ')', ')', '+', 'cos', '(', 'sin', '(', 'sin', '(', 34.0, '-', 2.0, '^', 2.0, ')', ')', ')', ')', '--', 'cos', '(', 1.0, ')', '--', 'cos', '(', 0.0, ')', '^', 3.0, ')'])
+        self.assertEqual(list_, ['sin', '(', '-', 'cos', '(', '-', 'sin', '(', 3.0, ')', '-', 'cos',
+                                 '(', '-', 'sin', '(', '-', 3.0, '*', 5.0, ')', '-', 'sin', '(', 'cos', '(',
+                                 'log10', '(', 43.0, ')', ')', ')', ')', '+', 'cos', '(', 'sin', '(', 'sin', '(',
+                                 34.0, '-', 2.0, '^', 2.0, ')', ')', ')', ')', '--', 'cos', '(', 1.0, ')', '--',
+                                 'cos', '(', 0.0, ')', '^', 3.0, ')'])
 
     def test37(self):
         list_ = []
@@ -237,7 +245,8 @@ class TestParcing(unittest.TestCase):
         list_ = []
         for el in parse('sin(e^log(e^e^sin(23.0),45.0) + cos(3.0+log10(e^-e)))'):
             list_.append(el)
-        self.assertEqual(list_, ['sin', '(', 'e', '^', 'log', '(', 'e', '^', 'e', '^', 'sin', '(', 23.0, ')', ',', 45.0, ')', '+', 'cos', '(', 3.0, '+', 'log10', '(', 'e', '^', '-', 'e', ')', ')', ')'])
+        self.assertEqual(list_, ['sin', '(', 'e', '^', 'log', '(', 'e', '^', 'e', '^', 'sin', '(', 23.0, ')', ',',
+                                 45.0, ')', '+', 'cos', '(', 3.0, '+', 'log10', '(', 'e', '^', '-', 'e', ')', ')', ')'])
 
     # Error cases
     def test39(self):
@@ -354,6 +363,7 @@ class TestParcing(unittest.TestCase):
         for el in parse('sin(sin(1))+1+sin(1)'):
             list_.append(el)
         self.assertEqual(list_, ['sin', '(', 'sin', '(', 1.0, ')', ')', '+', 1.0, '+', 'sin', '(', 1.0, ')'])
+
 
 if __name__ == '__main__':
     unittest.main()
