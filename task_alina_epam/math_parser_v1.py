@@ -4,13 +4,14 @@ import math
 import string
 import operator
 
+LETTERS = string.ascii_lowercase + string.ascii_uppercase
 
 UNARY_OPERATORS = {'+': (1, operator.add),
                    '-': (1, operator.sub),
                    }
 
 BINARY_OPERATORS = {'*': (2, operator.mul),
-                    '/': (2, operator.div),
+                    '/': (2, operator.truediv),
                     '//': (2, operator.floordiv),
                     '%': (2, operator.imod),
                     '^': (3, operator.ipow),
@@ -41,11 +42,13 @@ MATH_CONSTS = ('e', 'pi')
 ALL_FUNCTIONS = BUILT_IN_FUNCTIONS + MATH_FUNCTIONS
 ALL_FUNCTIONS_AND_CONSTS = MATH_FUNCTIONS + MATH_CONSTS
 
+ALL_DIGITS = tuple(string.digits)
+
 ALL_OPERATORS = tuple(OPERATORS.keys())
-ALLOWED_TOKENS = OPERATORS_BEGIN + tuple(string.letters) + tuple(string.digits) + PARENTHESES + ('.', ',', ' ')
+ALLOWED_TOKENS = OPERATORS_BEGIN + LETTERS + tuple(string.digits) + PARENTHESES + ('.', ',', ' ')
 
 
-value = '2+13.0'
+value = '3+1'
 
 
 def matched_parentheses(el, count):
@@ -56,41 +59,41 @@ def matched_parentheses(el, count):
     return count
 
 
-# TODO log10
-# TODO log1p
-# TODO how to parse functions with two arguments, were comma is present (leave comma?)
 def parse(formula_string):
-    number = ''
-    op = ''
-    function = ''
+    number = ''  # для накопления чисел
+    op = ''  # для накопления операторов
+    function = ''  # для накопления функций
     for el in formula_string.strip():
-        if el not in ALLOWED_TOKENS:
+        if el not in ALLOWED_TOKENS:  # проверяем разрешённый ли элемент в формуле, прежде чем его обрабатывать
             raise ValueError('Formula contains incorrect symbol "{}"'.format(el))
-        if el in string.letters:
+        if el in LETTERS:  # обработка функции
             function += el.lower()
-            if op:
+            if op:  # выстрелили оператор, если был накоплен
                 yield op
                 op = ''
-            if number:
+            if number:  # выстрелили число, если было накоплено
                 yield float(number)
                 number = ''
-        elif el in string.digits + '.':
-            if function == 'log' and el == '1':
+        elif el in string.digits + '.':  # обработка чисел целых и с точкой
+            if function == 'log' and el == '1':  # для формирования log10 и log1p
                 function += el
-            elif function == 'log1' and el == '0':
+            elif function == 'log1' and el == '0':  # для формирования log10
                 function += el
             else:
-                number += el
-                if op:
+                if number.count('.') <= 1:  # проверяем, что число содержит не более одного разделителя
+                    number += el
+                else:
+                    raise ValueError('Number can not contain more than one delimiter!')
+                if op:  # выстрелили оператор, если был накоплен
                     yield op
                     op = ''
-                if function:
+                if function:   # выстрелили функцию, если было накоплено
                     yield function
                     function = ''
-        elif el in OPERATORS_BEGIN:
+        elif el in OPERATORS_BEGIN:  # обработка операторов
             if el in DOUBLE_OPER_PART1 and not op:  # если возможен двойной оператор, добавили и ждём
                 op += el
-            elif el in DOUBLE_OPER_PART2 and op:  # найден двойной, добавили выстрелили обнулили
+            elif el in DOUBLE_OPER_PART2 and op:  # найден двойной
                 op += el
                 if number:  # выстрелили число, если было накоплено
                     yield float(number)
@@ -98,9 +101,9 @@ def parse(formula_string):
                 if function:  # выстрелили функцию, если было накоплено
                     yield function
                     function = ''
-                yield op
+                yield op  # выстрелили оператор двойной, когда он был накоплен
                 op = ''
-            else:  # не двойной
+            else:  # если оператор одинарный
                 if op:  # если был накоплен на предыдущем шаге - выстрелили, обнулили
                     yield op
                     op = ''
@@ -117,22 +120,22 @@ def parse(formula_string):
             if function:  # выстрелили функцию, если было накоплено
                 yield function
                 function = ''
-        elif el in PARENTHESES + (',', ):
-            if number:
+        elif el in PARENTHESES + (',', ):  # обработка скобок и запятых (если функция с несколькими аргументами)
+            if number:  # выстрелили число, если было накоплено
                 yield float(number)
                 number = ''
-            if function:
+            if function:  # выстрелили функцию, если было накоплено
                 yield function
                 function = ''
-            if op:
+            if op:  # выстрелили оператор, если был накоплен
                 yield op
                 op = ''
-            yield el
-    if function:
+            yield el  # выстрелили скобку или запятую, как только встретили
+    if function:  # выстрелили функцию, если было накоплено
         yield function
-    if number:
+    if number:  # выстрелили число, если было накоплено
         yield float(number)
-    if op:
+    if op:  # выстрелили оператор, если было накоплено
         yield op
 
 
@@ -150,28 +153,59 @@ def validate_parsed_list(parsed_list):
         raise ValueError('Operator at the end of the formula: "{}" '.format(parsed_list[-1]))
     if parsed_list[0] in BINARY_OPERATORS:
         raise ValueError('Formula can not start with binary operator "{}"'.format(parsed_list[0]))
+
     counter = 0  # counter for parentheses
-    was_number = False
+
     previous_el = ''
     for el in parsed_list:
         counter = matched_parentheses(el, counter)
-        if el[0] in string.letters():
+
+        message = 'After {} element {} is forbidden!'.format(str(previous_el), str(el))
+
+        if isinstance(el, str) and el[0] in LETTERS:
             if el.lower() not in ALL_FUNCTIONS_AND_CONSTS:
-                raise ValueError('Formula contains incorrect function(s) or constant(s): {}'.format(el))
-        if el[0] in OPERATORS:
-            pass
-        if isinstance(el, float) and was_number is False:
-            was_number = True
-        if el in BINARY_OPERATORS and previous_el in BINARY_OPERATORS:
-            raise ValueError('Two or more binary operators in a row in formula!')
+                raise ValueError(message)
+
+        if previous_el == '(':
+            if el in ((')', ',',) + BINARY_OPERATORS):
+                raise ValueError(message)
+
+        if previous_el == ')':
+            if el in (('(', ',',) + ALL_FUNCTIONS_AND_CONSTS) or isinstance(el, float):
+                raise ValueError(message)
+
+        if previous_el == ',':
+            if el in (('(', ')', ',',) + UNARY_OPERATORS):
+                raise ValueError(message)
+
+        if previous_el in UNARY_OPERATORS:
+            if el in ((')', ',',) + BINARY_OPERATORS):
+                raise ValueError(message)
+
+        if previous_el in BINARY_OPERATORS:
+            if el in ((')', ',',) + BINARY_OPERATORS):
+                raise ValueError(message)
+
+        if previous_el in ALL_FUNCTIONS:
+            if el != '(':
+                raise ValueError(message)
+
+        if isinstance(previous_el, float) or previous_el in MATH_CONSTS:
+            if el in (('(', ) + ALL_FUNCTIONS_AND_CONSTS) or isinstance(el, float):
+                raise ValueError(message)
+
         previous_el = el
+
     if counter != 0:
-        raise ValueError('Wrong number opened or closed parentheses in formula!')
-    if was_number is False:
-        raise ValueError('Formula does not contains numbers!')
+        raise ValueError('Wrong number of opened or closed parentheses in formula!')
+
+    print('OK')
 
 
-# validate_parsed_list(parsed_list)
+validate_parsed_list([1.0, '+', 2.0, '(', '(', 3.0, '*', 4.0, ')', ')'])
+# validate_parsed_list([1.0, 1.0])
+# validate_parsed_list(['(', 1.0, 'sin', ')'])
+
 
 # TODO pi and e how to
 def sort_to_polish(parsed_formula):
@@ -228,10 +262,10 @@ def calc(polish_list):
     return stack[0]  # результат вычисления - единственный элемент в стеке
 
 
-result = calc(polish_list)
-
-print math.sin(math.sin(1))+math.cos(12*math.sin(13))
-
-print('Result is: >> {}'.format(result))
+# result = calc(polish_list)
+#
+# print math.sin(math.sin(1))+math.cos(12*math.sin(13))
+#
+# print('Result is: >> {}'.format(result))
 
 
