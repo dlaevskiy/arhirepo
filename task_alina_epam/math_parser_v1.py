@@ -30,7 +30,9 @@ OPERATORS.update(BINARY_OPERATORS)
 PARENTHESES = ('(', ')')
 
 OPERATORS_BEGIN = ('+', '-', '*', '/', '%', '^', '<', '>', '=', '!',)
-# DOUBLE_OPER_PART2 = ('/', '=',)
+
+DOUBLE_OPER_PART1 = ('/', '<', '>', '=', '!',)
+DOUBLE_OPER_PART2 = ('/', '=',)
 
 BUILT_IN_FUNCTIONS = ('abs', 'round')
 MATH_FUNCTIONS = tuple([func for func in dir(math) if not func.startswith('_') and func not in ('e', 'pi')])
@@ -40,11 +42,10 @@ ALL_FUNCTIONS = BUILT_IN_FUNCTIONS + MATH_FUNCTIONS
 ALL_FUNCTIONS_AND_CONSTS = MATH_FUNCTIONS + MATH_CONSTS
 
 ALL_OPERATORS = tuple(OPERATORS.keys())
-ALLOWED_TOKENS = ALL_OPERATORS + tuple(string.letters) + tuple(string.digits) + PARENTHESES + ('.', ',', ' ')
+ALLOWED_TOKENS = OPERATORS_BEGIN + tuple(string.letters) + tuple(string.digits) + PARENTHESES + ('.', ',', ' ')
 
 
-# value = 'sin(sin(1))+cos(12*sin(13))'
-value = '1+*2'
+value = '2+13.0'
 
 
 def matched_parentheses(el, count):
@@ -66,7 +67,7 @@ def parse(formula_string):
         if el not in ALLOWED_TOKENS:
             raise ValueError('Formula contains incorrect symbol "{}"'.format(el))
         if el in string.letters:
-            function += el
+            function += el.lower()
             if op:
                 yield op
                 op = ''
@@ -74,22 +75,49 @@ def parse(formula_string):
                 yield float(number)
                 number = ''
         elif el in string.digits + '.':
-            number += el
-            if op:
+            if function == 'log' and el == '1':
+                function += el
+            elif function == 'log1' and el == '0':
+                function += el
+            else:
+                number += el
+                if op:
+                    yield op
+                    op = ''
+                if function:
+                    yield function
+                    function = ''
+        elif el in OPERATORS_BEGIN:
+            if el in DOUBLE_OPER_PART1 and not op:  # если возможен двойной оператор, добавили и ждём
+                op += el
+            elif el in DOUBLE_OPER_PART2 and op:  # найден двойной, добавили выстрелили обнулили
+                op += el
+                if number:  # выстрелили число, если было накоплено
+                    yield float(number)
+                    number = ''
+                if function:  # выстрелили функцию, если было накоплено
+                    yield function
+                    function = ''
                 yield op
                 op = ''
-            if function:
-                yield function
-                function = ''
-        elif el in OPERATORS_BEGIN:
-            op += el
-            if number:
+            else:  # не двойной
+                if op:  # если был накоплен на предыдущем шаге - выстрелили, обнулили
+                    yield op
+                    op = ''
+                if number:  # выстрелили число, если было накоплено
+                    yield float(number)
+                    number = ''
+                if function:  # выстрелили функцию, если было накоплено
+                    yield function
+                    function = ''
+                yield el  # довыстрелили одинарный оператор
+            if number:  # выстрелили число, если было накоплено
                 yield float(number)
                 number = ''
-            if function:
+            if function:  # выстрелили функцию, если было накоплено
                 yield function
                 function = ''
-        elif el in PARENTHESES:
+        elif el in PARENTHESES + (',', ):
             if number:
                 yield float(number)
                 number = ''
@@ -186,10 +214,6 @@ print('Polish list is: >> {}'.format(polish_list))
 def calc(polish_list):
     stack = []
     for token in polish_list:
-        try:
-            token = token.lower()
-        except AttributeError:
-            pass
         if token in ALL_FUNCTIONS:
             x = stack.pop()  # забираем 1 числo из стека
             stack.append(getattr(math, token)(x))  # вычисляем оператор, возвращаем в стек
