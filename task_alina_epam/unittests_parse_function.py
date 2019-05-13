@@ -1,6 +1,6 @@
 import unittest
 
-from .math_parser_v1 import parse
+from task_alina_epam.math_parser_v1 import parse
 
 
 class TestParsing(unittest.TestCase):

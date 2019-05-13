@@ -4,7 +4,7 @@ import math
 import string
 import operator
 
-LETTERS = string.ascii_lowercase + string.ascii_uppercase
+LETTERS = tuple(string.ascii_lowercase + string.ascii_uppercase)
 
 UNARY_OPERATORS = {'+': (1, operator.add),
                    '-': (1, operator.sub),
@@ -21,8 +21,6 @@ BINARY_OPERATORS = {'*': (2, operator.mul),
                     '>=': (0, operator.ge),
                     '==': (0, operator.eq),
                     '!=': (0, operator.ne),
-                    'sin': (3, math.sin),  # TODO remove it from here
-                    'cos': (3, math.cos),
                     }
 
 OPERATORS = UNARY_OPERATORS.copy()
@@ -59,6 +57,7 @@ def matched_parentheses(el, count):
     return count
 
 
+# TODO what if ['.*4.0']
 def parse(formula_string):
     number = ''  # для накопления чисел
     op = ''  # для накопления операторов
@@ -167,7 +166,7 @@ def validate_parsed_list(parsed_list):
                 raise ValueError(message)
 
         if previous_el == '(':
-            if el in ((')', ',',) + BINARY_OPERATORS):
+            if el in ((')', ',',) + tuple(BINARY_OPERATORS.keys())):
                 raise ValueError(message)
 
         if previous_el == ')':
@@ -175,15 +174,15 @@ def validate_parsed_list(parsed_list):
                 raise ValueError(message)
 
         if previous_el == ',':
-            if el in (('(', ')', ',',) + UNARY_OPERATORS):
+            if el in (('(', ')', ',',) + tuple(UNARY_OPERATORS.keys())):
                 raise ValueError(message)
 
         if previous_el in UNARY_OPERATORS:
-            if el in ((')', ',',) + BINARY_OPERATORS):
+            if el in ((')', ',',) + tuple(BINARY_OPERATORS.keys())):
                 raise ValueError(message)
 
         if previous_el in BINARY_OPERATORS:
-            if el in ((')', ',',) + BINARY_OPERATORS):
+            if el in ((')', ',',) + tuple(BINARY_OPERATORS.keys())):
                 raise ValueError(message)
 
         if previous_el in ALL_FUNCTIONS:
@@ -199,15 +198,12 @@ def validate_parsed_list(parsed_list):
     if counter != 0:
         raise ValueError('Wrong number of opened or closed parentheses in formula!')
 
-    print('OK')
-
-
-validate_parsed_list([1.0, '+', 2.0, '(', '(', 3.0, '*', 4.0, ')', ')'])
-# validate_parsed_list([1.0, 1.0])
-# validate_parsed_list(['(', 1.0, 'sin', ')'])
+    return 'Formula was validated! Errors were not found.'
 
 
 # TODO pi and e how to
+# TODO more tnah one argument (,)
+# TODO unari operation how to?
 def sort_to_polish(parsed_formula):
     stack = []  # в качестве стэка используем список
     for token in parsed_formula:
@@ -219,7 +215,7 @@ def sort_to_polish(parsed_formula):
             while stack and stack[-1] != "(" and OPERATORS[token][0] <= OPERATORS[stack[-1]][0]:
                 yield stack.pop()
             stack.append(token)
-        elif token in ALL_FUNCTIONS:  # TODO why here?
+        elif token in ALL_FUNCTIONS:
             stack.append(token)
         elif token == ")":
             # если элемент - закрывающая скобка, выдаём все элементы из стека, до открывающей скобки,
@@ -233,7 +229,7 @@ def sort_to_polish(parsed_formula):
             # если элемент - открывающая скобка, просто положим её в стек
             stack.append(token)
         else:
-            # если элемент - число, отправим его сразу на выход
+            # если элемент - число или константа, отправим его сразу на выход
             yield token
     while stack:
         yield stack.pop()

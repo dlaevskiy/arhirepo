@@ -1,6 +1,6 @@
 import unittest
 
-from math_parser_v1 import sort_to_polish
+from task_alina_epam.math_parser_v1 import sort_to_polish
 
 
 class TestSorting(unittest.TestCase):
