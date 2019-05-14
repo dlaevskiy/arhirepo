@@ -57,7 +57,8 @@ def matched_parentheses(el, count):
     return count
 
 
-# TODO what if ['.*4.0']
+# TODO what if ['.*4.0'] - '.'
+# TODO накапливать функцию пока не скобка
 def parse(formula_string):
     number = ''  # для накопления чисел
     op = ''  # для накопления операторов
@@ -202,7 +203,7 @@ def validate_parsed_list(parsed_list):
 
 
 # TODO pi and e how to
-# TODO more tnah one argument (,)
+# TODO more that one argument (,)
 # TODO unari operation how to?
 def sort_to_polish(parsed_formula):
     stack = []  # в качестве стэка используем список
