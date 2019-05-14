@@ -58,7 +58,6 @@ def matched_parentheses(el, count):
 
 
 # TODO what if ['.*4.0'] - '.'
-# TODO накапливать функцию пока не скобка
 def parse(formula_string):
     number = ''  # для накопления чисел
     op = ''  # для накопления операторов
@@ -75,10 +74,8 @@ def parse(formula_string):
                 yield float(number)
                 number = ''
         elif el in string.digits + '.':  # обработка чисел целых и с точкой
-            if function == 'log' and el == '1':  # для формирования log10 и log1p
-                function += el
-            elif function == 'log1' and el == '0':  # для формирования log10
-                function += el
+            if function:
+                function += el  # продолжаем накапливать функцию, пока не встретим что-то отличное от цифры
             else:
                 if number.count('.') <= 1:  # проверяем, что число содержит не более одного разделителя
                     number += el

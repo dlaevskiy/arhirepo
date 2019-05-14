@@ -296,7 +296,7 @@ class TestParsing(unittest.TestCase):
         list_ = []
         for el in parse('log100(100)'):
             list_.append(el)
-        self.assertEqual(list_, ['log10', 0.0, '(', 100.0, ')'])
+        self.assertEqual(list_, ['log100', '(', 100.0, ')'])
 
     def test47(self):
         list_ = []
@@ -364,6 +364,18 @@ class TestParsing(unittest.TestCase):
         for el in parse('sin(sin(1))+1+sin(1)'):
             list_.append(el)
         self.assertEqual(list_, ['sin', '(', 'sin', '(', 1.0, ')', ')', '+', 1.0, '+', 'sin', '(', 1.0, ')'])
+
+    def test58(self):
+        list_ = []
+        for el in parse('log100l(100)'):
+            list_.append(el)
+        self.assertEqual(list_, ['log100l', '(', 100.0, ')'])
+
+    def test59(self):
+        list_ = []
+        for el in parse('log100+(100)'):
+            list_.append(el)
+        self.assertEqual(list_, ['log100', '+', '(', 100.0, ')'])
 
 
 if __name__ == '__main__':
