@@ -173,16 +173,16 @@ class ExpectedFailureTestCase(unittest.TestCase):
     def test56(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list([4.0, 'e', '+', 5.0, ')']))
 
-    def test29(self):
+    def test57(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['e', '(', '+', 'pi']))
 
-    def test29(self):
+    def test58(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['e', '.', '+', 'pi']))
 
-    def test29(self):
+    def test59(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['e', 'sin', '(', 3.0, ')']))
 
-    def test29(self):
+    def test60(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['e', 3.0, '+', 'pi']))
 
 
