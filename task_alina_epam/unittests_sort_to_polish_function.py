@@ -20,15 +20,15 @@ class TestSorting(unittest.TestCase):
 
     def test3(self):
         list_ = []
-        for el in sort_to_polish([1.0, '-', '-', '-', 1.0]):
+        for el in sort_to_polish([1.0, '-', 1.0]):
             list_.append(el)
-        self.assertEqual(list_, [1.0, '-', '-', 1.0, '-'])
+        self.assertEqual(list_, [1.0, 1.0, '-'])
 
     def test4(self):
         list_ = []
-        for el in sort_to_polish(['-', '+', '-', '-', '-', '+', '-', 1.0]):
+        for el in sort_to_polish(['-', 1.0]):
             list_.append(el)
-        self.assertEqual(list_, [0.0, '-', '+', '-', '-', '-', '+', 1.0, '-'])
+        self.assertEqual(list_, [1.0, '-'])
 
     # Operation priority
     def test5(self):
@@ -217,13 +217,13 @@ class TestSorting(unittest.TestCase):
 
     def test35(self):
         list_ = []
-        for el in sort_to_polish([10.0, '*', 'e', '^', 0.0, '*', 'log10', '(', 0.4, '-', 5.0, '/', '-', 0.1, '-', 10.0, ')', '--', 'abs', '(', '-', 53.0, '/', 10.0, ')', '+-', 5.0]):
+        for el in sort_to_polish([10.0, '*', 'e', '^', 0.0, '*', 'log10', '(', 0.4, '-', 5.0, '/', '-', 0.1, '-', 10.0, ')', '+', 'abs', '(', '-', 53.0, '/', 10.0, ')', '-', 5.0]):
             list_.append(el)
-        self.assertEqual(list_, [10.0, 'e', 0.0, '^', '*', 0.4, 5.0, '/', '-', 0.1, '-', 10.0, '-', 'log10', '*', '-', 53.0, 10.0, '/', '-', 'abs', '-', '+', 5.0, '-'])
+        self.assertEqual(list_, [10.0, 'e', 0.0, '^', '*', 0.4, 5.0, '/', '-', 0.1, '-', 10.0, '-', 'log10', '*', 53.0, 10.0, '/', '-', 'abs', '-', '+', 5.0, '-'])
 
     def test36(self):
         list_ = []
-        for el in sort_to_polish(['sin', '(', '-', 'cos', '(', '-', 'sin', '(', 3.0, ')', '-', 'cos', '(', '-', 'sin', '(', '-', 3.0, '*', 5.0, ')', '-', 'sin', '(', 'cos', '(', 'log10', '(', 43.0, ')', ')', ')', ')', '+', 'cos', '(', 'sin', '(', 'sin', '(', 34.0, '-', 2.0, '^', 2.0, ')', ')', ')', ')', '--', 'cos', '(', 1.0, ')', '--', 'cos', '(', 0.0, ')', '^', 3.0, ')']):
+        for el in sort_to_polish(['sin', '(', '-', 'cos', '(', '-', 'sin', '(', 3.0, ')', '-', 'cos', '(', '-', 'sin', '(', '-', 3.0, '*', 5.0, ')', '-', 'sin', '(', 'cos', '(', 'log10', '(', 43.0, ')', ')', ')', ')', '+', 'cos', '(', 'sin', '(', 'sin', '(', 34.0, '-', 2.0, '^', 2.0, ')', ')', ')', ')', '+', 'cos', '(', 1.0, ')', '+', 'cos', '(', 0.0, ')', '^', 3.0, ')']):
             list_.append(el)
         self.assertEqual(list_, [3.0, 'sin', '-', 3.0, 5.0, '*', '-', 'sin', '-', 43.0, 'log10', 'cos', 'sin', '-', 'cos', '-', 34.0, 2.0, 2.0, '^', '-', 'sin', 'sin', 'cos', '+', 'cos', '-', '-', 1.0, 'cos', '-', '-', 'cos', 3.0, '^', '-', 'sin'])
 
