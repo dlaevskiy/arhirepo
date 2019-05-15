@@ -1,6 +1,6 @@
 import unittest
-# task_alina_epam.
-from math_parser_v1 import validate_parsed_list
+
+from task_alina_epam.math_parser_v1 import validate_parsed_list
 
 
 class ExpectedFailureTestCase(unittest.TestCase):
@@ -71,14 +71,119 @@ class ExpectedFailureTestCase(unittest.TestCase):
     def test22(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['(', 1.0, '+', 5.0, ')', '(', 1.0, '+', 5.0, ')']))
 
-    def test19(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '+', 2.0]))
+    def test23(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', 2.0]))
 
-    def test20(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', ',', 77.0, '-', 4.0, ')', '+', 2.0]))
+    def test24(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', ',', 77.0, '-', 4.0, ')', ',', 2.0]))
 
-    def test21(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '//', 77.0, '-', 4.0, ')', '+', 2.0]))
+    def test25(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '//', 77.0, '-', 4.0, ')', 'sin', '(', 2.0, ')']))
+
+    def test26(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', 2.0, '+', 1.0]))
+
+    def test27(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', ',', 77.0, '-', 4.0, ')', 'e']))
+
+    def test28(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '//', 77.0, '-', 4.0, ')', 'sin', '(', 2.0, ')']))
+
+    def test29(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', '(', 2.0, '+', '1']))
+
+    def test30(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, '.', '.', ')']))
+
+    def test31(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', '(', 2.0, '+', '1']))
+
+    def test32(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', ',', 2.0, '+', '1']))
+
+    def test33(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', '-', 2.0, '+', '1']))
+
+    def test34(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', 'sin', '(', 2.0, ')']))
+
+    def test35(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', 'e']))
+
+    def test36(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['-', ')', 4.0]))
+
+    def test37(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['-', '.', 4.0]))
+
+    def test38(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['-', ',', 4.0]))
+
+    def test39(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['-', '//', 4.0]))
+
+    def test40(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list([26.0, '//', ')', 4.0]))
+
+    def test41(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list([26.0, '//', '.', 4.0]))
+
+    def test42(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list([26.0, '//', ',', 4.0]))
+
+    def test43(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list([26.0, '//', '%', 4.0]))
+
+    def test44(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['cos', ')', 4.0, ')']))
+
+    def test45(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['cos', '.', 4.0, ')']))
+
+    def test46(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['cos', ',', 4.0, ')']))
+
+    def test47(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['cos', '-', 4.0, ')']))
+
+    def test48(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['cos', '//', 4.0, ')']))
+
+    def test49(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['cos', 'cos', 4.0, ')']))
+
+    def test50(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['cos', 4.0, ')']))
+
+    def test51(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['cos', 'e', 4.0, ')']))
+
+    def test52(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list([4.0, '(', '+', 5.0, ')']))
+
+    def test53(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list([4.0, '.', '+', 5.0]))
+
+    def test54(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list([4.0, 'sin', '(', 5.0, ')']))
+
+    def test55(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list([4.0, 3.0, '+', 5.0]))
+
+    def test56(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list([4.0, 'e', '+', 5.0, ')']))
+
+    def test29(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['e', '(', '+', 'pi']))
+
+    def test29(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['e', '.', '+', 'pi']))
+
+    def test29(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['e', 'sin', '(', 3.0, ')']))
+
+    def test29(self):
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['e', 3.0, '+', 'pi']))
 
 
 class ExpectedSuccessTestCase(unittest.TestCase):
