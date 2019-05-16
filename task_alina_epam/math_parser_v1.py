@@ -230,6 +230,15 @@ def sort_to_polish(parsed_formula):
         yield stack.pop()
 
 
+L = []
+# for el in sort_to_polish([5.0, '*', '(', '-', '3', '*', '8']):
+# for el in sort_to_polish(['(', 5.0, '-', 8.0, ')', '*', 3.0]):
+for el in sort_to_polish(['-', 1.0]):
+    L.append(el)
+
+print(L)
+
+
 def calc(polish_list):
     stack = []
     for token in polish_list:
@@ -263,3 +272,6 @@ def process_unary_operations(parsed_list):
                 yield temp_str
                 stack_str = ''
             yield el
+
+
+# 5 * (?3 + 8)
