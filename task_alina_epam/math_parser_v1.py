@@ -40,13 +40,14 @@ MATH_CONSTS = ('e', 'pi')
 ALL_FUNCTIONS = BUILT_IN_FUNCTIONS + MATH_FUNCTIONS
 ALL_FUNCTIONS_AND_CONSTS = MATH_FUNCTIONS + MATH_CONSTS
 
+ALL_FUNCTIONS_DICT = {el: (3,) for el in ALL_FUNCTIONS}
+ALL_FUNCTIONS_AND_OPERATORS_DICT = ALL_FUNCTIONS_DICT.copy()
+ALL_FUNCTIONS_AND_OPERATORS_DICT.update(OPERATORS)
+
 ALL_DIGITS = tuple(string.digits)
 
 ALL_OPERATORS = tuple(OPERATORS.keys())
 ALLOWED_TOKENS = OPERATORS_BEGIN + LETTERS + tuple(string.digits) + PARENTHESES + ('.', ',', ' ')
-
-
-value = '3+1'
 
 
 def matched_parentheses(el, count):
@@ -136,12 +137,6 @@ def parse(formula_string):
         yield op
 
 
-parsed_list = []
-for element in parse(value):
-    parsed_list.append(element)
-print('Parsed list is: >> {}'.format(parsed_list))
-
-
 # TODO how to process pow(2, 3, 4) - incorrect number of arguments
 def validate_parsed_list(parsed_list):
     if not parsed_list:
@@ -209,11 +204,11 @@ def sort_to_polish(parsed_formula):
         # чей приоритет больше или равен пришедшему,
         # до открывающей скобки или опустошения стека.
         # здесь мы пользуемся тем, что все операторы право-ассоциативны
-        if token in OPERATORS:
-            while stack and stack[-1] != "(" and OPERATORS[token][0] <= OPERATORS[stack[-1]][0]:
+        if token in ALL_FUNCTIONS_AND_OPERATORS_DICT:
+            while (stack and stack[-1] != "(" and
+                   ALL_FUNCTIONS_AND_OPERATORS_DICT[token][0] <= ALL_FUNCTIONS_AND_OPERATORS_DICT[stack[-1]][0] and
+                    token != '^'):
                 yield stack.pop()
-            stack.append(token)
-        elif token in ALL_FUNCTIONS:
             stack.append(token)
         elif token == ")":
             # если элемент - закрывающая скобка, выдаём все элементы из стека, до открывающей скобки,
@@ -233,12 +228,6 @@ def sort_to_polish(parsed_formula):
         yield stack.pop()
 
 
-polish_list = []
-for element in sort_to_polish(parsed_list):
-    polish_list.append(element)
-print('Polish list is: >> {}'.format(polish_list))
-
-
 def calc(polish_list):
     stack = []
     for token in polish_list:
@@ -250,16 +239,32 @@ def calc(polish_list):
                 y, x = stack.pop(), stack.pop()  # забираем 2 числа из стека
                 stack.append(OPERATORS[token][1](x, y))  # вычисляем оператор, возвращаем в стек
             except IndexError:
-                raise ValueError('Incorrect formula! {}'.format(value))
+                raise ValueError('Incorrect formula!')
         else:
             stack.append(token)
     return stack[0]  # результат вычисления - единственный элемент в стеке
 
 
-# result = calc(polish_list)
-#
-# print math.sin(math.sin(1))+math.cos(12*math.sin(13))
-#
-# print('Result is: >> {}'.format(result))
+def process_unary_operations(parsed_list):
+    stack_str = ''
+    for el in parsed_list:
+        if el in UNARY_OPERATORS:
+            stack_str += el
+        else:
+            if stack_str:
+                if '-' in stack_str:
+                    temp_str = stack_str.replace('+', '')
+                    while '--' in temp_str:
+                        temp_str = temp_str.replace('--', '-')
+                else:
+                    temp_str = '+'
+                yield temp_str
+                stack_str = ''
+            yield el
 
 
+L = []
+for el in process_unary_operations(['-', '-', '-', '-', '-', 1, '-', '+', '(', '-', 1, ')']):
+    L.append(el)
+
+print(L)
