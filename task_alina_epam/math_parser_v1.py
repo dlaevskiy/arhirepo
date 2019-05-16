@@ -38,7 +38,7 @@ MATH_FUNCTIONS = tuple([func for func in dir(math) if not func.startswith('_') a
 MATH_CONSTS = ('e', 'pi')
 
 ALL_FUNCTIONS = BUILT_IN_FUNCTIONS + MATH_FUNCTIONS
-ALL_FUNCTIONS_AND_CONSTS = MATH_FUNCTIONS + MATH_CONSTS
+ALL_FUNCTIONS_AND_CONSTS = ALL_FUNCTIONS + MATH_CONSTS
 
 ALL_FUNCTIONS_DICT = {el: (3,) for el in ALL_FUNCTIONS}
 ALL_FUNCTIONS_AND_OPERATORS_DICT = ALL_FUNCTIONS_DICT.copy()
@@ -58,7 +58,6 @@ def matched_parentheses(el, count):
     return count
 
 
-# TODO what if ['.*4.0'] - '.'
 def parse(formula_string):
     number = ''  # для накопления чисел
     op = ''  # для накопления операторов
@@ -72,7 +71,7 @@ def parse(formula_string):
                 yield op
                 op = ''
             if number:  # выстрелили число, если было накоплено
-                yield float(number)
+                yield float(number) if number != '.' else '.'
                 number = ''
         elif el in string.digits + '.':  # обработка чисел целых и с точкой
             if function:
@@ -94,7 +93,7 @@ def parse(formula_string):
             elif el in DOUBLE_OPER_PART2 and op:  # найден двойной
                 op += el
                 if number:  # выстрелили число, если было накоплено
-                    yield float(number)
+                    yield float(number) if number != '.' else '.'
                     number = ''
                 if function:  # выстрелили функцию, если было накоплено
                     yield function
@@ -106,21 +105,21 @@ def parse(formula_string):
                     yield op
                     op = ''
                 if number:  # выстрелили число, если было накоплено
-                    yield float(number)
+                    yield float(number) if number != '.' else '.'
                     number = ''
                 if function:  # выстрелили функцию, если было накоплено
                     yield function
                     function = ''
                 yield el  # довыстрелили одинарный оператор
             if number:  # выстрелили число, если было накоплено
-                yield float(number)
+                yield float(number) if number != '.' else '.'
                 number = ''
             if function:  # выстрелили функцию, если было накоплено
                 yield function
                 function = ''
         elif el in PARENTHESES + (',', ):  # обработка скобок и запятых (если функция с несколькими аргументами)
             if number:  # выстрелили число, если было накоплено
-                yield float(number)
+                yield float(number) if number != '.' else '.'
                 number = ''
             if function:  # выстрелили функцию, если было накоплено
                 yield function
@@ -132,7 +131,7 @@ def parse(formula_string):
     if function:  # выстрелили функцию, если было накоплено
         yield function
     if number:  # выстрелили число, если было накоплено
-        yield float(number)
+        yield float(number) if number != '.' else '.'
     if op:  # выстрелили оператор, если было накоплено
         yield op
 
@@ -154,6 +153,9 @@ def validate_parsed_list(parsed_list):
 
         message = 'After {} element {} is forbidden!'.format(str(previous_el), str(el))
 
+        if el == '.':
+            raise ValueError('Single delimiter is prohibited in formula!')
+
         if isinstance(el, str) and el[0] in LETTERS:
             if el.lower() not in ALL_FUNCTIONS_AND_CONSTS:
                 raise ValueError(message)
@@ -163,7 +165,7 @@ def validate_parsed_list(parsed_list):
                 raise ValueError(message)
 
         if previous_el == ')':
-            if el in (('(', ',',) + ALL_FUNCTIONS_AND_CONSTS) or isinstance(el, float):
+            if el in (('(', ) + ALL_FUNCTIONS_AND_CONSTS) or isinstance(el, float):
                 raise ValueError(message)
 
         if previous_el == ',':
@@ -261,10 +263,3 @@ def process_unary_operations(parsed_list):
                 yield temp_str
                 stack_str = ''
             yield el
-
-
-L = []
-for el in process_unary_operations(['-', '-', '-', '-', '-', 1, '-', '+', '(', '-', 1, ')']):
-    L.append(el)
-
-print(L)

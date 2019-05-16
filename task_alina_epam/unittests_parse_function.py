@@ -377,6 +377,12 @@ class TestParsing(unittest.TestCase):
             list_.append(el)
         self.assertEqual(list_, ['log100', '+', '(', 100.0, ')'])
 
+    def test60(self):
+        list_ = []
+        for el in parse('.+1'):
+            list_.append(el)
+        self.assertEqual(list_, ['.', '+', 1.0, ])
+
 
 if __name__ == '__main__':
     unittest.main()
