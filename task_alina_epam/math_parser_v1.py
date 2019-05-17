@@ -204,7 +204,7 @@ def sort_to_polish(parsed_formula):
     previous_token = ''
     if parsed_formula[0] == '-':
         yield 0.0
-        stack.append('-')
+    elif parsed_formula[0] == '+':
         parsed_formula = parsed_formula[1:]
     for token in parsed_formula:
         # если элемент - оператор, то отправляем дальше все операторы из стека,
@@ -267,20 +267,24 @@ def calc(polish_list):
 
 def process_unary_operations(parsed_list):
     stack_str = ''
+    processed_list = []
     for el in parsed_list:
         if el in UNARY_OPERATORS:
             stack_str += el
         else:
             if stack_str:
                 if '-' in stack_str:
-                    temp_str = stack_str.replace('+', '')
-                    while '--' in temp_str:
-                        temp_str = temp_str.replace('--', '-')
+                    stack_str = stack_str.replace('+', '')
+                    while '--' in stack_str:
+                        stack_str = stack_str.replace('--', '')
                 else:
-                    temp_str = '+'
-                yield temp_str
+                    if processed_list and processed_list[-1] in (('(', ) + tuple(BINARY_OPERATORS.keys())):
+                        stack_str = ''
+                    else:
+                        stack_str = '+'
+                if stack_str:
+                    processed_list.append(stack_str)
                 stack_str = ''
-            yield el
+            processed_list.append(el)
+    return processed_list
 
-
-# 5 * (?3 + 8)

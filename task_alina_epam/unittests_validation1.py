@@ -316,3 +316,6 @@ class ExpectedSuccessTestCase(unittest.TestCase):
         self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(
                                 ['sin', '(', 'e', '^', 'log', '(', 'e', '^', 'e', '^', 'sin', '(', 23.0, ')', ',', 45.0,
                                  ')', '+', 'cos', '(', 3.0, '+', 'log10', '(', 'e', '^', '-', 'e', ')', ')', ')']))
+
+    def test_37(self):
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([1.0, '*', '-', 13.0]))
