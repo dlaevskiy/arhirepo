@@ -169,7 +169,7 @@ def validate_parsed_list(parsed_list):
                 raise ValueError(message)
 
         if previous_el == ',':
-            if el in (('(', ')', ',',) + tuple(UNARY_OPERATORS.keys())):
+            if el in (')', ',', '.'):
                 raise ValueError(message)
 
         if previous_el in UNARY_OPERATORS:
@@ -202,17 +202,18 @@ def validate_parsed_list(parsed_list):
 def sort_to_polish(parsed_formula):
     stack = []  # в качестве стэка используем список
     previous_token = ''
-    if parsed_formula[0] == '-':
-        yield 0.0
-    elif parsed_formula[0] == '+':
-        parsed_formula = parsed_formula[1:]
+    # # if parsed_formula[0] == '-':
+    # #     yield 0.0
+    # #     # parsed_formula = parsed_formula[1:]
+    # if parsed_formula[0] == '+':
+    #     parsed_formula = parsed_formula[1:]
     for token in parsed_formula:
         # если элемент - оператор, то отправляем дальше все операторы из стека,
         # чей приоритет больше или равен пришедшему,
         # до открывающей скобки или опустошения стека.
         # здесь мы пользуемся тем, что все операторы право-ассоциативны
         if token in ALL_FUNCTIONS_AND_OPERATORS_DICT:
-            if token == '-' and previous_token == '(':
+            if token == '-' and previous_token in ('(', ',', '') + tuple(BINARY_OPERATORS.keys()):
                 yield 0.0
             while (stack and stack[-1] != "(" and
                    ALL_FUNCTIONS_AND_OPERATORS_DICT[token][0] <= ALL_FUNCTIONS_AND_OPERATORS_DICT[stack[-1]][0] and
@@ -238,14 +239,14 @@ def sort_to_polish(parsed_formula):
         yield stack.pop()
 
 
-L = []
-# for el in sort_to_polish([5.0, '*', '(', '-', '3', '*', '8']):
-# for el in sort_to_polish(['(', 5.0, '-', 8.0, ')', '*', 3.0]):
-# for el in sort_to_polish(['-', 1.0]):
-for el in sort_to_polish(['-', '(', '-', 1.0, ')']):
-    L.append(el)
-
-print(L)
+# L = []
+# # for el in sort_to_polish([5.0, '*', '(', '-', '3', '*', '8']):
+# # for el in sort_to_polish(['(', 5.0, '-', 8.0, ')', '*', 3.0]):
+# # for el in sort_to_polish(['-', 1.0]):
+# for el in sort_to_polish(['-', '(', '-', 1.0, ')']):
+#     L.append(el)
+#
+# print(L)
 
 
 def calc(polish_list):
@@ -265,10 +266,14 @@ def calc(polish_list):
     return stack[0]  # результат вычисления - единственный элемент в стеке
 
 
-def process_unary_operations(parsed_list):
+def process_unary_operations(validated_list):
+    """
+    :param validated_list: list of tokens after parsing of input formula and validation of it
+    :return: processed_list: all unary '+' are removed, all redundant unary '-' are removed
+    """
     stack_str = ''
     processed_list = []
-    for el in parsed_list:
+    for el in validated_list:
         if el in UNARY_OPERATORS:
             stack_str += el
         else:
@@ -278,7 +283,8 @@ def process_unary_operations(parsed_list):
                     while '--' in stack_str:
                         stack_str = stack_str.replace('--', '')
                 else:
-                    if processed_list and processed_list[-1] in (('(', ) + tuple(BINARY_OPERATORS.keys())):
+                    if ((processed_list and processed_list[-1] in (('(', ',') + tuple(BINARY_OPERATORS.keys()))) or
+                            not processed_list):
                         stack_str = ''
                     else:
                         stack_str = '+'

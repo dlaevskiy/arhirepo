@@ -31,7 +31,7 @@ class TestProcessUnaryOperations(unittest.TestCase):
 
     def test7(self):
         list_ = process_unary_operations(['+', '+', '+', '+', 13.0, ])
-        self.assertEqual(list_, ['+', 13.0])
+        self.assertEqual(list_, [13.0])
 
     def test8(self):
         list_ = process_unary_operations([1.0, '*', '-', '-', 13.0, ])

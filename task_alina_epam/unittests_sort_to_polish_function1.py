@@ -173,7 +173,7 @@ class TestSorting(unittest.TestCase):
         list_ = []
         for el in sort_to_polish(['-', 0.1]):
             list_.append(el)
-        self.assertEqual(list_, [0.1, '-'])
+        self.assertEqual(list_, [0.0, 0.1, '-'])
 
     def test28(self):
         list_ = []
