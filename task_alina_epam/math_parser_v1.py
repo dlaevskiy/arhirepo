@@ -198,15 +198,22 @@ def validate_parsed_list(parsed_list):
 
 # TODO pi and e how to
 # TODO more that one argument (,)
-# TODO unari operation how to?
+# TODO unari operation how to? - in progress
 def sort_to_polish(parsed_formula):
     stack = []  # в качестве стэка используем список
+    previous_token = ''
+    if parsed_formula[0] == '-':
+        yield 0.0
+        stack.append('-')
+        parsed_formula = parsed_formula[1:]
     for token in parsed_formula:
         # если элемент - оператор, то отправляем дальше все операторы из стека,
         # чей приоритет больше или равен пришедшему,
         # до открывающей скобки или опустошения стека.
         # здесь мы пользуемся тем, что все операторы право-ассоциативны
         if token in ALL_FUNCTIONS_AND_OPERATORS_DICT:
+            if token == '-' and previous_token == '(':
+                yield 0.0
             while (stack and stack[-1] != "(" and
                    ALL_FUNCTIONS_AND_OPERATORS_DICT[token][0] <= ALL_FUNCTIONS_AND_OPERATORS_DICT[stack[-1]][0] and
                     token != '^'):
@@ -226,6 +233,7 @@ def sort_to_polish(parsed_formula):
         else:
             # если элемент - число или константа, отправим его сразу на выход
             yield token
+        previous_token = token
     while stack:
         yield stack.pop()
 
@@ -233,7 +241,8 @@ def sort_to_polish(parsed_formula):
 L = []
 # for el in sort_to_polish([5.0, '*', '(', '-', '3', '*', '8']):
 # for el in sort_to_polish(['(', 5.0, '-', 8.0, ')', '*', 3.0]):
-for el in sort_to_polish(['-', 1.0]):
+# for el in sort_to_polish(['-', 1.0]):
+for el in sort_to_polish(['-', '(', '-', 1.0, ')']):
     L.append(el)
 
 print(L)
