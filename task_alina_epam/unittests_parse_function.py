@@ -382,4 +382,25 @@ class TestParsing(unittest.TestCase):
         for el in parse('.+1'):
             list_.append(el)
         self.assertEqual(list_, ['.', '+', 1.0, ])
+    
+    def test61(self):
+        self.assertRaises(ValueError, lambda: parse('1+&6.0'))
 
+    def test62(self):
+        self.assertRaises(ValueError, lambda: parse(['_+6']))
+
+    def test63(self):
+        self.assertRaises(ValueError, lambda: parse(['1>=@']))
+
+    def test64(self):
+        self.assertRaises(ValueError, lambda: parse(['-2+(#+1)']))
+
+    def test65(self):
+        self.assertRaises(ValueError, lambda: parse(['1..4+6']))
+
+    def test66(self):
+        self.assertRaises(ValueError, lambda: parse(['1.4+6..']))
+
+    def test67(self):
+        self.assertRaises(ValueError, lambda: parse(['1..4+6..1']))
+        
