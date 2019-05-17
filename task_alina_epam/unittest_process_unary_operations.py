@@ -52,3 +52,51 @@ class TestProcessUnaryOperations(unittest.TestCase):
     def test12(self):
         list_ = process_unary_operations(['(', 1.0, '+', 13.0, ')'])
         self.assertEqual(list_, ['(', 1.0, '+', 13.0, ')'])
+    
+    def test13(self):
+        list_ = process_unary_operations(['-', '-', '-', '-', '-', 1.0, '-', '+', '(', '-', 1.0, ')'])
+        self.assertEqual(list_, ['-', 1.0, '-', '(', '-', 1.0, ')'])
+
+    def test14(self):
+        list_ = process_unary_operations(['-', '+', '-', '-', '-', '+', '-', 1.0])
+        self.assertEqual(list_, ['-', 1.0])
+
+    def test15(self):
+        list_ = process_unary_operations(['-', '+', '-', '+', '-', '+', '-', '+', '-', '+', '-', 1.0])
+        self.assertEqual(list_, [1.0])
+
+    def test16(self):
+        list_ = process_unary_operations(['-', '+', '(', '-', '-', '+', '-', 1.0, ')'])
+        self.assertEqual(list_, ['-', '(', '-', 1.0, ')'])
+
+    def test17(self):
+        list_ = process_unary_operations(['+', '+', '-', '-', '+', '+', '-', '(', '-', 1.0, ')'])
+        self.assertEqual(list_, ['-', '(', '-', 1.0, ')'])
+
+    def test18(self):
+        list_ = process_unary_operations([1, '-', '-', '-', 1.0])
+        self.assertEqual(list_, [1.0, '-', 1.0])
+
+    def test19(self):
+        list_ = process_unary_operations([1.0, '-', '-', 1.0, '-', '-', 1.0])
+        self.assertEqual(list_, [1.0, '+', 1.0, '+', 1.0])
+
+    def test20(self):
+        list_ = process_unary_operations([1.0, '-', '+', 1.0, '+', '-', 1.0])
+        self.assertEqual(list_, [1.0, '-', 1.0, '-', 1.0])
+
+    def test21(self):
+        list_ = process_unary_operations(['+', '+', '+', '+', '+', 1.0])
+        self.assertEqual(list_, [1.0])
+
+    def test22(self):
+        list_ = process_unary_operations(['-', '-', '-', '-', '-', 1.0])
+        self.assertEqual(list_, ['-', 1.0])
+
+    def test23(self):
+        list_ = process_unary_operations(['+', '+', '(', '+', '(', '+', '+', 1.0, ')', ')'])
+        self.assertEqual(list_, ['(', '(', 1.0, ')', ')'])
+
+    def test24(self):
+        list_ = process_unary_operations(['-', '(', '-', '+', '(', '-', '+', 1.0, ')', ')'])
+        self.assertEqual(list_, ['-', '(', '-', '(', '-', 1.0, ')', ')'])
