@@ -287,7 +287,3 @@ class TestSorting(unittest.TestCase):
         for el in sort_to_polish(['sin', '(', 'sin', '(', 1.0, ')', ')', '+', 1.0, '+', 'sin', '(', 1.0, ')']):
             list_.append(el)
         self.assertEqual(list_, [1.0, 'sin', 'sin', 1.0, '+', 1.0, 'sin', '+'])
-
-
-if __name__ == '__main__':
-    unittest.main()

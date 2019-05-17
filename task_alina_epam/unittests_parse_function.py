@@ -383,6 +383,3 @@ class TestParsing(unittest.TestCase):
             list_.append(el)
         self.assertEqual(list_, ['.', '+', 1.0, ])
 
-
-if __name__ == '__main__':
-    unittest.main()

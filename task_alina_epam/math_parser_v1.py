@@ -239,28 +239,30 @@ def sort_to_polish(parsed_formula):
         yield stack.pop()
 
 
-# L = []
-# # for el in sort_to_polish([5.0, '*', '(', '-', '3', '*', '8']):
-# # for el in sort_to_polish(['(', 5.0, '-', 8.0, ')', '*', 3.0]):
-# # for el in sort_to_polish(['-', 1.0]):
-# for el in sort_to_polish(['-', '(', '-', 1.0, ')']):
-#     L.append(el)
-#
-# print(L)
+import sys
 
+sys.builtin_module_names
 
 def calc(polish_list):
     stack = []
     for token in polish_list:
-        if token in ALL_FUNCTIONS:
+        if token in MATH_FUNCTIONS:
             x = stack.pop()  # забираем 1 числo из стека
             stack.append(getattr(math, token)(x))  # вычисляем оператор, возвращаем в стек
+        elif token in BUILT_IN_FUNCTIONS:
+             x = stack.pop()  # забираем 1 числo из стека
+             if token == 'abs':
+                stack.append(abs(x))
+             elif token == 'round':
+                stack.append(round(x))
         elif token in OPERATORS:  # если приходящий элемент - оператор,
             try:
                 y, x = stack.pop(), stack.pop()  # забираем 2 числа из стека
                 stack.append(OPERATORS[token][1](x, y))  # вычисляем оператор, возвращаем в стек
             except IndexError:
                 raise ValueError('Incorrect formula!')
+        elif token in MATH_CONSTS:
+            stack.append(getattr(math, token))
         else:
             stack.append(token)
     return stack[0]  # результат вычисления - единственный элемент в стеке
