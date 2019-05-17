@@ -1,6 +1,6 @@
 import unittest
 
-from math_parser_v1 import sort_to_polish
+from task_alina_epam.math_parser_v1 import sort_to_polish
 
 
 class TestSorting(unittest.TestCase):
@@ -222,13 +222,13 @@ class TestSorting(unittest.TestCase):
         self.assertEqual(list_, ['pi', 2.0, 1.0, '^', '/', 'sin', 1.0, 4.0, '*', 2.0, 2.0, '^', '+',
                                  1.0, ',', 3.0, 2.0, '^', '+', 'log', '+'])
 
-    def test35(self):
+    def test35(self):  # 10*e^0*log10(.4 -5/ (-0.1)-10)+abs(-53/10)-5
         list_ = []
-        for el in sort_to_polish([10.0, '*', 'e', '^', 0.0, '*', 'log10', '(', 0.4, '-', 5.0, '/', '-', 0.1, '-',
+        for el in sort_to_polish([10.0, '*', 'e', '^', 0.0, '*', 'log10', '(', 0.4, '-', 5.0, '/', '(', '-', 0.1, ')', '-',
                                   10.0, ')', '+', 'abs', '(', '-', 53.0, '/', 10.0, ')', '-', 5.0]):
             list_.append(el)
-        self.assertEqual(list_, [10.0, 'e', 0.0, '^', '*', 0.4, 5.0, '/', '-', 0.1, '-', 10.0, '-', 'log10', '*', 0.0,
-                                  53.0, 10.0, '/', '-', 'abs', '+', 5.0, '-'])
+        self.assertEqual(list_, [10.0, 'e', 0.0, '^', '*', 0.4, 5.0, 0.0, 0.1, '-', '/', '-', 10.0, '-', 'log10', '*', 0.0,
+                                 53.0, 10.0, '/', '-', 'abs', '+', 5.0, '-'])
 
     def test36(self):
         list_ = []
@@ -238,7 +238,7 @@ class TestSorting(unittest.TestCase):
                                   '(', 'sin', '(', 34.0, '-', 2.0, '^', 2.0, ')', ')', ')', ')', '+', 'cos',
                                   '(', 1.0, ')', '+', 'cos', '(', 0.0, ')', '^', 3.0, ')']):
             list_.append(el)
-        self.assertEqual(list_, [3.0, 'sin', '-', 3.0, 5.0, '*', '-', 'sin', '-', 43.0, 'log10',
+        self.assertEqual(list_, [0.0, 0.0, 3.0, 'sin', '-', 0.0, 0.0, 3.0, 5.0, '*', '-', 'sin', '-', 43.0, 'log10',
                                  'cos', 'sin', '-', 'cos', '-', 34.0, 2.0, 2.0, '^', '-', 'sin', 'sin',
                                  'cos', '+', 'cos', '-', 1.0, 'cos', '+', 0.0, 3.0, '^', 'cos', '+', 'sin'])
 
@@ -248,14 +248,14 @@ class TestSorting(unittest.TestCase):
             list_.append(el)
         self.assertEqual(list_, [2.0, 2.0, 2.0, '^', 2.0, 2.0, '^', '*', '^'])
 
-    def test38(self):
+    def test38(self):  # sin(e^log(e^e^sin(23.0),45.0) + cos(3.0+log10(e^(-e))))
         list_ = []
         for el in sort_to_polish(['sin', '(', 'e', '^', 'log', '(', 'e', '^', 'e', '^', 'sin',
                                   '(', 23.0, ')', ',', 45.0, ')', '+', 'cos', '(', 3.0, '+', 'log10',
-                                  '(', 'e', '^', '-', 'e', ')', ')', ')']):
+                                  '(', 'e', '^', '(', '-', 'e', ')', ')', ')', ')']):
             list_.append(el)
-        self.assertEqual(list_, ['e', '^', 'e', 'e', '^', '^', 23.0, ',', 45.0, 'sin', 'log', 3.0, 'e', '^',
-                                 'e', '-', 'log10', '+', 'cos', '+', 'sin'])
+        self.assertEqual(list_, ['e', '^', 'e', 'e', '^', '^', 23.0, ',', 45.0, 'sin', 'log', 3.0, 'e', 0.0,
+                                 'e', '-', '^', 'log10', '+', 'cos', '+', 'sin'])
 
     # Self-made cases
     def test52(self):
