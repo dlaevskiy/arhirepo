@@ -100,3 +100,7 @@ class TestProcessUnaryOperations(unittest.TestCase):
     def test24(self):
         list_ = process_unary_operations(['-', '(', '-', '+', '(', '-', '+', 1.0, ')', ')'])
         self.assertEqual(list_, ['-', '(', '-', '(', '-', 1.0, ')', ')'])
+
+    def test25(self):
+        list_ = process_unary_operations(['+', 1.0, ])
+        self.assertEqual(list_, [1.0])

@@ -58,13 +58,19 @@ def matched_parentheses(el, count):
     return count
 
 
+def pre_validation(formula_string):
+    if '..' in formula_string:  # проверяем, что число содержит не более одного разделителя
+        raise ValueError('Number can not contain more than one delimiter!')
+    for el in formula_string.strip():
+        if el not in ALLOWED_TOKENS:  # проверка на разрешённые элементы
+            raise ValueError('Formula contains incorrect symbol "{}"'.format(el))
+
+
 def parse(formula_string):
     number = ''  # для накопления чисел
     op = ''  # для накопления операторов
     function = ''  # для накопления функций
     for el in formula_string.strip():
-        if el not in ALLOWED_TOKENS:  # проверяем разрешённый ли элемент в формуле, прежде чем его обрабатывать
-            raise ValueError('Formula contains incorrect symbol "{}"'.format(el))
         if el in LETTERS:  # обработка функции
             function += el.lower()
             if op:  # выстрелили оператор, если был накоплен
@@ -77,14 +83,11 @@ def parse(formula_string):
             if function:
                 function += el  # продолжаем накапливать функцию, пока не встретим что-то отличное от цифры
             else:
-                if number.count('.') <= 1:  # проверяем, что число содержит не более одного разделителя
-                    number += el
-                else:
-                    raise ValueError('Number can not contain more than one delimiter!')
+                number += el
                 if op:  # выстрелили оператор, если был накоплен
                     yield op
                     op = ''
-                if function:   # выстрелили функцию, если было накоплено
+                if function:  # выстрелили функцию, если было накоплено
                     yield function
                     function = ''
         elif el in OPERATORS_BEGIN:  # обработка операторов
@@ -117,7 +120,7 @@ def parse(formula_string):
             if function:  # выстрелили функцию, если было накоплено
                 yield function
                 function = ''
-        elif el in PARENTHESES + (',', ):  # обработка скобок и запятых (если функция с несколькими аргументами)
+        elif el in PARENTHESES + (',',):  # обработка скобок и запятых (если функция с несколькими аргументами)
             if number:  # выстрелили число, если было накоплено
                 yield float(number) if number != '.' else '.'
                 number = ''
@@ -136,7 +139,7 @@ def parse(formula_string):
         yield op
 
 
-# TODO how to process pow(2, 3, 4) - incorrect number of arguments
+# TODO how to process sin(2, 3) - incorrect number of arguments, allowed only one
 def validate_parsed_list(parsed_list):
     if not parsed_list:
         raise ValueError('Formula can not be empty!')
@@ -165,7 +168,7 @@ def validate_parsed_list(parsed_list):
                 raise ValueError(message)
 
         if previous_el == ')':
-            if el in (('(', ) + ALL_FUNCTIONS_AND_CONSTS) or isinstance(el, float):
+            if el in (('(',) + ALL_FUNCTIONS_AND_CONSTS) or isinstance(el, float):
                 raise ValueError(message)
 
         if previous_el == ',':
@@ -185,7 +188,7 @@ def validate_parsed_list(parsed_list):
                 raise ValueError(message)
 
         if isinstance(previous_el, float) or previous_el in MATH_CONSTS:
-            if el in (('(', ) + ALL_FUNCTIONS_AND_CONSTS) or isinstance(el, float):
+            if el in (('(',) + ALL_FUNCTIONS_AND_CONSTS) or isinstance(el, float):
                 raise ValueError(message)
 
         previous_el = el
@@ -193,20 +196,15 @@ def validate_parsed_list(parsed_list):
     if counter != 0:
         raise ValueError('Wrong number of opened or closed parentheses in formula!')
 
-    return 'Formula was validated! Errors were not found.'
+    return 'Formula was validated! Errors were not found'
 
 
-# TODO pi and e how to
+# TODO pi and e how to - seems is working
 # TODO more that one argument (,)
-# TODO unari operation how to? - in progress
+# TODO unari operation how to? - seems is working
 def sort_to_polish(parsed_formula):
     stack = []  # в качестве стэка используем список
     previous_token = ''
-    # # if parsed_formula[0] == '-':
-    # #     yield 0.0
-    # #     # parsed_formula = parsed_formula[1:]
-    # if parsed_formula[0] == '+':
-    #     parsed_formula = parsed_formula[1:]
     for token in parsed_formula:
         # если элемент - оператор, то отправляем дальше все операторы из стека,
         # чей приоритет больше или равен пришедшему,
@@ -217,7 +215,7 @@ def sort_to_polish(parsed_formula):
                 yield 0.0
             while (stack and stack[-1] != "(" and
                    ALL_FUNCTIONS_AND_OPERATORS_DICT[token][0] <= ALL_FUNCTIONS_AND_OPERATORS_DICT[stack[-1]][0] and
-                    token != '^'):
+                   token != '^'):
                 yield stack.pop()
             stack.append(token)
         elif token == ")":
@@ -239,10 +237,6 @@ def sort_to_polish(parsed_formula):
         yield stack.pop()
 
 
-import sys
-
-sys.builtin_module_names
-
 def calc(polish_list):
     stack = []
     for token in polish_list:
@@ -250,10 +244,10 @@ def calc(polish_list):
             x = stack.pop()  # забираем 1 числo из стека
             stack.append(getattr(math, token)(x))  # вычисляем оператор, возвращаем в стек
         elif token in BUILT_IN_FUNCTIONS:
-             x = stack.pop()  # забираем 1 числo из стека
-             if token == 'abs':
+            x = stack.pop()  # забираем 1 числo из стека
+            if token == 'abs':
                 stack.append(abs(x))
-             elif token == 'round':
+            elif token == 'round':
                 stack.append(round(x))
         elif token in OPERATORS:  # если приходящий элемент - оператор,
             try:
@@ -279,14 +273,19 @@ def process_unary_operations(validated_list):
         if el in UNARY_OPERATORS:
             stack_str += el
         else:
+            isUnaryPlus = ((processed_list and processed_list[-1] in (('(', ',') + tuple(BINARY_OPERATORS.keys()))) or
+                           not processed_list)
             if stack_str:
                 if '-' in stack_str:
-                    stack_str = stack_str.replace('+', '')
-                    while '--' in stack_str:
-                        stack_str = stack_str.replace('--', '')
+                    if stack_str.count('-') % 2 == 0:  # считаем кол-во -, заменяя на + либо -
+                        if isUnaryPlus:
+                            stack_str = ''
+                        else:
+                            stack_str = '+'
+                    else:
+                        stack_str = '-'
                 else:
-                    if ((processed_list and processed_list[-1] in (('(', ',') + tuple(BINARY_OPERATORS.keys()))) or
-                            not processed_list):
+                    if isUnaryPlus:
                         stack_str = ''
                     else:
                         stack_str = '+'
@@ -295,4 +294,3 @@ def process_unary_operations(validated_list):
                 stack_str = ''
             processed_list.append(el)
     return processed_list
-

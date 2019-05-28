@@ -183,7 +183,7 @@ class ExpectedFailureTestCase(unittest.TestCase):
     def test59(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['e', 3.0, '+', 'pi']))
 
-    #matched parentheses
+    # matched parentheses
     def test60(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list([15.0, '*', '(', 25.0, '+', 1.0]))
 
@@ -340,6 +340,7 @@ class ExpectedSuccessTestCase(unittest.TestCase):
         self.assertEqual('Formula was validated! '
                          'Errors were not found.', validate_parsed_list(['log', '(', 1.0, ',',
                                                                          '(', '-', 13.0, ')', ')']))
+
 
 if __name__ == '__main__':
     unittest.main()
