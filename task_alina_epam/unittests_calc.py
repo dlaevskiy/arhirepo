@@ -246,10 +246,12 @@ class TestCalcing(unittest.TestCase):
                                                                         'sin']))
 
     def test84(self):
-        self.assertEqual(math.pow(2.0**(2.0**2.0*2.0**2.0), log10(100)*log10(1000)), calc([2.0, 2.0, 2.0, '^', 2.0, 2.0,
-                                                                                          '^', '*', '^', ',', 100.0,
-                                                                                          'log10', 1000.0, 'log10', '*',
-                                                                                          'sin', 'pow']))
+        self.assertEqual(math.pow(2.0**(2.0**2.0*2.0**2.0), math.log10(100)*math.log10(1000)), calc([2.0, 2.0, 2.0, '^',
+                                                                                                     2.0, 2.0, '^', '*',
+                                                                                                     '^', ',', 100.0,
+                                                                                                     'log10', 1000.0,
+                                                                                                     'log10', '*',
+                                                                                                     'sin', 'pow']))
 
 if __name__ == '__main__':
     unittest.main()
