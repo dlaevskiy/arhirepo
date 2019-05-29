@@ -76,7 +76,8 @@ class ExpectedFailureTestCase(unittest.TestCase):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['(', ',', 77.0, '-', 4.0, ')', ',', 2.0]))
 
     def test24(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '//', 77.0, '-', 4.0, ')', 'sin', '(', 2.0, ')']))
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '//', 77.0, '-', 4.0, ')',
+                                                                    'sin', '(', 2.0, ')']))
 
     def test25(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', 2.0, '+', 1.0]))
@@ -85,25 +86,31 @@ class ExpectedFailureTestCase(unittest.TestCase):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['(', ',', 77.0, '-', 4.0, ')', 'e']))
 
     def test27(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '//', 77.0, '-', 4.0, ')', 'sin', '(', 2.0, ')']))
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '//', 77.0, '-', 4.0,
+                                                                    ')', 'sin', '(', 2.0, ')']))
 
     def test28(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', '(', 2.0, '+', '1']))
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')',
+                                                                    '.', '(', 2.0, '+', '1']))
 
     def test29(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, '.', '.', ')']))
 
     def test30(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', '(', 2.0, '+', '1']))
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')',
+                                                                    '.', '(', 2.0, '+', '1']))
 
     def test31(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', ',', 2.0, '+', '1']))
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')',
+                                                                    '.', ',', 2.0, '+', '1']))
 
     def test32(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', '-', 2.0, '+', '1']))
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')',
+                                                                    '.', '-', 2.0, '+', '1']))
 
     def test33(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', 'sin', '(', 2.0, ')']))
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')',
+                                                                    '.', 'sin', '(', 2.0, ')']))
 
     def test34(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['(', '.', 77.0, '-', 4.0, ')', '.', 'e']))
@@ -197,7 +204,8 @@ class ExpectedFailureTestCase(unittest.TestCase):
         self.assertRaises(ValueError, lambda: validate_parsed_list([15.0, '*', 25.0, '+', 1.0, '(', ')']))
 
     def test64(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list([15.0, '*', 25.0, '+', '(', 1.0, '+', ')', 1.0, ')']))
+        self.assertRaises(ValueError, lambda: validate_parsed_list([15.0, '*', 25.0, '+', '(', 1.0,
+                                                                    '+', ')', 1.0, ')']))
 
 
 class ExpectedSuccessTestCase(unittest.TestCase):
@@ -205,31 +213,41 @@ class ExpectedSuccessTestCase(unittest.TestCase):
         self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['-', 13.0]))
 
     def test_2(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([6.0, '-', '(', '-', 13.0, ')']))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([6.0, '-', '(', '-',
+                                                                                                13.0, ')']))
 
     def test_3(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([1.0, '-', '-', '-', 1.0]))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([1.0, '-', '-', '-',
+                                                                                                1.0]))
 
     def test_4(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['-', '+', '-', '-', '-', '+', '-', 1.0]))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['-', '+', '-', '-',
+                                                                                                '-', '+', '-', 1.0]))
 
     def test_5(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([1.0, '+', 2.0, '*', 2.0]))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([1.0, '+', 2.0,
+                                                                                                '*', 2.0]))
 
     def test_6(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([1.0, '+', '(', 2.0, '+', 3.0, '*', 2.0, ')', '*', 3.0]))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([1.0, '+', '(', 2.0, '+',
+                                                                                                3.0, '*', 2.0, ')', '*',
+                                                                                                3.0]))
 
     def test_7(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([10.0, '*', '(', 2.0, '+', 1.0, ')']))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([10.0, '*', '(', 2.0,
+                                                                                                '+', 1.0, ')']))
 
     def test_8(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([10.0, '^', '(', 2.0, '+', 1.0, ')']))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([10.0, '^', '(', 2.0,
+                                                                                                '+', 1.0, ')']))
 
     def test_9(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([100.0, '/', 3.0, '^', 2.0]))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([100.0, '/', 3.0,
+                                                                                                '^', 2.0]))
 
     def test_10(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([100.0, '/', 3.0, '%', 2.0, '^', 2.0]))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([100.0, '/', 3.0, '%',
+                                                                                                2.0, '^', 2.0]))
 
     def test_11(self):
         self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['pi', '+', 'e']))
@@ -238,10 +256,12 @@ class ExpectedSuccessTestCase(unittest.TestCase):
         self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['log', '(', 'e', ')']))
 
     def test_13(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['sin', '(', 'pi', '/', 2.0, ')']))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['sin', '(', 'pi', '/',
+                                                                                                2.0, ')']))
 
     def test_14(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['log10', '(', 100.0, ')']))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['log10', '(',
+                                                                                                100.0, ')']))
 
     def test_15(self):
         self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(
@@ -252,19 +272,24 @@ class ExpectedSuccessTestCase(unittest.TestCase):
                                     [2.0, '*', 'sin', '(', 'pi', '/', 2.0, ')']))
 
     def test_17(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['abs', '(', '-', 5.0, ')']))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['abs', '(', '-', 5.0,
+                                                                                                ')']))
 
     def test_18(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['round', '(', 123.456789, ')']))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['round', '(',
+                                                                                                123.456789, ')']))
 
     def test_19(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([102.0, '%', 12.0, '%', 7.0]))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([102.0, '%', 12.0,
+                                                                                                '%', 7.0]))
 
     def test_20(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([100.0, '/', 4.0, '/', 3.0]))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([100.0, '/', 4.0, '/',
+                                                                                                3.0]))
 
     def test_21(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([2.0, '^', 3.0, '^', 4.0]))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([2.0, '^', 3.0, '^',
+                                                                                                4.0]))
 
     def test_22(self):
         self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(
@@ -291,7 +316,8 @@ class ExpectedSuccessTestCase(unittest.TestCase):
         self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([1.0, '/', 3.0]))
 
     def test_29(self):
-        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([0.1, '*', 2.0, '^', 56.0]))
+        self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list([0.1, '*', 2.0, '^',
+                                                                                                56.0]))
 
     def test_30(self):
         self.assertEqual('Formula was validated! Errors were not found.', validate_parsed_list(['e', '^', 34.0]))
