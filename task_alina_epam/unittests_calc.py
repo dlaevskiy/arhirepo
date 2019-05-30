@@ -1,8 +1,8 @@
 # -*- coding: Windows-1251 -*-
 import unittest
 import math
-
-from task_alina_epam.math_parser_v1 import calc
+# task_alina_epam.
+from math_parser_v1 import calc
 
 
 class TestCalcing(unittest.TestCase):
@@ -32,13 +32,11 @@ class TestCalcing(unittest.TestCase):
     def test8(self):
         self.assertEqual(10 ** (2 + 1), calc([10.0, 2.0, 1.0, '+', '^']))
 
-    # TODO: AssertionError: 11 != 11.11111111111111
     def test9(self):
-        self.assertEqual(100 / 3 ** 2, calc([100.0, 3.0, 2.0, '^', '/']))
+        self.assertEqual(100.0 / 3.0 ** 2.0, calc([100.0, 3.0, 2.0, '^', '/']))
 
-    # TODO: AssertionError: 1 != 1.3333333333333357
     def test10(self):
-        self.assertEqual(100 / 3 % 2 ** 2, calc([100.0, 3.0, '/', 2.0, 2.0, '^', '%']))
+        self.assertEqual(100.0 / 3.0 % 2.0 ** 2.0, calc([100.0, 3.0, '/', 2.0, 2.0, '^', '%']))
 
     # Functions and constants
     def test11(self):
@@ -69,9 +67,8 @@ class TestCalcing(unittest.TestCase):
     def test19(self):
         self.assertEqual(102 % 12 % 7, calc([102.0,  12.0, '%', 7.0, '%']))
 
-    # TODO: AssertionError: 8 != 8.333333333333334
     def test20(self):
-        self.assertEqual(100 / 4 / 3, calc([100.0,  4.0, '/', 3.0, '/']))
+        self.assertEqual(100.0 / 4.0 / 3.0, calc([100.0,  4.0, '/', 3.0, '/']))
 
     def test21(self):
         self.assertEqual(2 ** 3 ** 4, calc([2.0, 3.0, 4.0, '^', '^']))
@@ -97,9 +94,8 @@ class TestCalcing(unittest.TestCase):
     def test27(self):
         self.assertEqual(-.1, calc([0.0, 0.1, '-']))
 
-    # TODO: AssertionError: 0 != 0.3333333333333333
     def test28(self):
-        self.assertEqual(1 / 3, calc([1.0, 3.0, '/']))
+        self.assertEqual(1.0 / 3.0, calc([1.0, 3.0, '/']))
 
     def test29(self):
         self.assertEqual(1.0 / 3.0, calc([1.0, 3.0, '/']))
