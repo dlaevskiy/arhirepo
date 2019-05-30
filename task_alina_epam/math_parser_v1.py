@@ -221,11 +221,13 @@ def sort_to_polish(parsed_formula):
         if token in ALL_FUNCTIONS_AND_OPERATORS_DICT:
             if token == '-' and previous_token in ('(', ',', '') + tuple(BINARY_OPERATORS.keys()):
                 yield 0.0
-            while (stack and stack[-1] != "(" and
-                   ALL_FUNCTIONS_AND_OPERATORS_DICT[token][0] <= ALL_FUNCTIONS_AND_OPERATORS_DICT[stack[-1]][0] and
-                   token != '^'):
-                yield stack.pop()
-            stack.append(token)
+                stack.append(token)
+            else:
+                while (stack and stack[-1] != "(" and
+                       ALL_FUNCTIONS_AND_OPERATORS_DICT[token][0] <= ALL_FUNCTIONS_AND_OPERATORS_DICT[stack[-1]][0] and
+                       token != '^'):
+                    yield stack.pop()
+                stack.append(token)
         elif token == ")":
             # если элемент - закрывающая скобка, выдаём все элементы из стека, до открывающей скобки,
             # а открывающую скобку выкидываем из стека.
@@ -237,6 +239,11 @@ def sort_to_polish(parsed_formula):
         elif token == "(":
             # если элемент - открывающая скобка, просто положим её в стек
             stack.append(token)
+        elif token == ",":  # конец аргумента
+            # выдаём все операторы из стека до открывающей скобки
+            while stack and stack[-1] != "(":
+                yield stack.pop()
+            yield token
         else:
             # если элемент - число или константа, отправим его сразу на выход
             yield token

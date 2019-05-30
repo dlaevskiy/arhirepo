@@ -214,8 +214,8 @@ class TestSorting(unittest.TestCase):
         self.assertEqual(list_, [2.0, 'pi', 'pi', '/', 'e', 'e', '/', '+', 2.0, 0.0, '^', '+',
                                  '^', 1.0, 3.0, '/', '^'])
 
-    # TODO: process log correctly (if we put arguments of logs in (), everything will be done correctly)
-    def test34(self):  # log(1*4+2^2+1, 3^2)
+    # TODO: fixed
+    def test34(self):
         list_ = []
         for el in sort_to_polish(['log', '(', 1.0, '*', 4.0, '+', 2.0, '^', 2.0, '+', 1.0, ',', 3.0, '^', 2.0, ')']):
             list_.append(el)
@@ -351,7 +351,7 @@ class TestSorting(unittest.TestCase):
             list_.append(el)
         self.assertEqual(list_, [8.0, ',', 2.0, 'log', 16.0, ',', 2.0, 'log', '*', 'sin'])
 
-    # TODO: process log correctly (if we put arguments of logs in (), everything will be done correctly)
+    # TODO: fixed
     def test68(self):  # log(8+20-1,2+1)
         list_ = []
         for el in sort_to_polish(['log', '(', 8.0, '+', 20.0, '-', 1.0, ',', 2.0, '+', 1.0, ')']):
