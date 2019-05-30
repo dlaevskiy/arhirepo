@@ -1,5 +1,5 @@
 # -*- coding: Windows-1251 -*-
-
+import sys
 import math
 import string
 import operator
@@ -50,6 +50,13 @@ ALL_OPERATORS = tuple(OPERATORS.keys())
 ALLOWED_TOKENS = OPERATORS_BEGIN + LETTERS + tuple(string.digits) + PARENTHESES + ('.', ',', ' ')
 
 
+def excepthook(type, value, traceback):
+    print(value)
+
+
+sys.excepthook = excepthook
+
+
 def matched_parentheses(el, count):
     if el == "(":
         count += 1
@@ -60,7 +67,8 @@ def matched_parentheses(el, count):
 
 def pre_validation(formula_string):
     if '..' in formula_string:  # проверяем, что число содержит не более одного разделителя
-        raise ValueError('Number can not contain more than one delimiter!')
+        # raise ValueError('Number can not contain more than one delimiter!')
+        print('Number can not contain more than one delimiter!')
     for el in formula_string.strip():
         if el not in ALLOWED_TOKENS:  # проверка на разрешённые элементы
             raise ValueError('Formula contains incorrect symbol "{}"'.format(el))

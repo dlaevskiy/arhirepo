@@ -1,26 +1,26 @@
 import argparse
 from sys import argv
 
-from task_alina_epam.math_parser_v1 import (pre_validation,
-                                            parse,
-                                            validate_parsed_list,
-                                            process_unary_operations,
-                                            sort_to_polish,
-                                            calc)
+from math_parser_v1 import (pre_validation,
+                            parse,
+                            validate_parsed_list,
+                            process_unary_operations,
+                            sort_to_polish,
+                            calc)
 
 
-def createParser():
-    parser = argparse.ArgumentParser(prog='Py Calc',
-                                     description='Pure-python command-line calculator',
-                                     epilog='(c) Alina Laevskaya 2019.'
-                                     )
+def create_parser():
+    parser_ = argparse.ArgumentParser(prog='Py Calc',
+                                      description='Pure-python command-line calculator',
+                                      epilog='(c) Alina Laevskaya 2019.'
+                                      )
 
-    parser.add_argument('-f', '--formula', help='Send formula for processing.')
-    return parser
+    parser_.add_argument('-f', '--formula', help='Send formula for processing.')
+    return parser_
 
 
 if __name__ == '__main__':
-    parser = createParser()
+    parser = create_parser()
     namespace = parser.parse_args(argv[1:])
     pre_validation(namespace.formula)
     print('Prevalidation was done!')
