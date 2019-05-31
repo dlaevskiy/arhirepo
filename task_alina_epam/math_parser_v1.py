@@ -5,9 +5,8 @@ import string
 import operator
 import inspect
 
-from pip._vendor.msgpack.fallback import xrange
-
 LETTERS = tuple(string.ascii_lowercase + string.ascii_uppercase)
+DIGITS = tuple(string.digits)
 
 UNARY_OPERATORS = {'+': (1, operator.add),
                    '-': (1, operator.sub),
@@ -37,8 +36,10 @@ DOUBLE_OPER_PART1 = ('/', '<', '>', '=', '!',)
 DOUBLE_OPER_PART2 = ('/', '=',)
 
 BUILT_IN_FUNCTIONS = ('abs', 'round')
-MATH_FUNCTIONS = tuple([func for func in dir(math) if not func.startswith('_') and func not in ('e', 'pi')])
-MATH_CONSTS = ('e', 'pi')
+NOT_SUPPORTED_MATH_FUNCTIONS = ('frexp', 'isclose', 'isinf', 'isfinite', 'isnan')
+MATH_CONSTS = ('e', 'pi', 'inf', 'nan', 'tau')
+MATH_FUNCTIONS = tuple([func for func in dir(math) if not func.startswith('_') and
+                        func not in (MATH_CONSTS + NOT_SUPPORTED_MATH_FUNCTIONS)])
 
 ALL_FUNCTIONS = BUILT_IN_FUNCTIONS + MATH_FUNCTIONS
 ALL_FUNCTIONS_AND_CONSTS = ALL_FUNCTIONS + MATH_CONSTS
@@ -47,10 +48,9 @@ ALL_FUNCTIONS_DICT = {el: (4,) for el in ALL_FUNCTIONS}
 ALL_FUNCTIONS_AND_OPERATORS_DICT = ALL_FUNCTIONS_DICT.copy()
 ALL_FUNCTIONS_AND_OPERATORS_DICT.update(OPERATORS)
 
-ALL_DIGITS = tuple(string.digits)
 
-ALL_OPERATORS = tuple(OPERATORS.keys())
-ALLOWED_TOKENS = OPERATORS_BEGIN + LETTERS + tuple(string.digits) + PARENTHESES + ('.', ',', ' ')
+DELIMETERS = ('.', ',', ' ')
+ALLOWED_TOKENS = OPERATORS_BEGIN + LETTERS + DIGITS + PARENTHESES + DELIMETERS
 
 
 def excepthook(type, value, traceback):
@@ -149,11 +149,10 @@ def parse(formula_string):
         yield op
 
 
-# TODO how to process sin(2, 3) - incorrect number of arguments, allowed only one - in progress
 def validate_parsed_list(parsed_list):
     if not parsed_list:
         raise ValueError('Formula can not be empty!')
-    if parsed_list[-1] in ALL_OPERATORS:
+    if parsed_list[-1] in OPERATORS:
         raise ValueError('Operator at the end of the formula: "{}" '.format(parsed_list[-1]))
     if parsed_list[0] in BINARY_OPERATORS:
         raise ValueError('Formula can not start with binary operator "{}"'.format(parsed_list[0]))
@@ -171,7 +170,7 @@ def validate_parsed_list(parsed_list):
 
         if isinstance(el, str) and el[0] in LETTERS:
             if el.lower() not in ALL_FUNCTIONS_AND_CONSTS:
-                raise ValueError(message)
+                raise ValueError('Function or constant {} is not supported by calculator'.format(el))
 
         if previous_el == '(':
             if el in ((')', ',',) + tuple(BINARY_OPERATORS.keys())):
@@ -209,9 +208,6 @@ def validate_parsed_list(parsed_list):
     return 'Formula was validated! Errors were not found.'
 
 
-# TODO pi and e how to - seems is working
-# TODO more that one argument (,) - seems is working
-# TODO unari operation how to? - seems is working
 def sort_to_polish(parsed_formula):
     stack = []  # в качестве стэка используем список
     previous_token = ''
@@ -255,7 +251,8 @@ def sort_to_polish(parsed_formula):
 
 
 # TODO gcd only integer input
-# TODO 1 arg, 2 args, 4 args
+# TODO ldexp float + integer input
+# TODO 1 arg, 2 args, 4 args - in progress
 def calc(polish_list):
     stack = []
     for token in polish_list:
@@ -279,6 +276,7 @@ def calc(polish_list):
             arguments = []
         elif token in BUILT_IN_FUNCTIONS:
             x = stack.pop()  # забираем 1 числo из стека
+            # TODO how to get attr automatically
             if token == 'abs':
                 stack.append(abs(x))
             elif token == 'round':
@@ -325,6 +323,3 @@ def process_unary_operations(validated_list):
                 stack_str = ''
             processed_list.append(el)
     return processed_list
-
-
-print(calc([2.0, ',', 2.0, ',', 2.0, 'pow']))
