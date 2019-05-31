@@ -206,7 +206,7 @@ def validate_parsed_list(parsed_list):
     if counter != 0:
         raise ValueError('Wrong number of opened or closed parentheses in formula!')
 
-    return 'Formula was validated! Errors were not found'
+    return 'Formula was validated! Errors were not found.'
 
 
 # TODO pi and e how to - seems is working
@@ -254,17 +254,29 @@ def sort_to_polish(parsed_formula):
         yield stack.pop()
 
 
-# TODO fsum how
 # TODO gcd only integer input
 # TODO 1 arg, 2 args, 4 args
 def calc(polish_list):
     stack = []
     for token in polish_list:
         if token in MATH_FUNCTIONS:
+            arguments = []
             func_name = getattr(math, token)
             number_arguments = len(inspect.getfullargspec(func_name).args)
-            x = stack.pop()  # забираем 1 числo из стека
-            stack.append(func_name(x))  # вычисляем оператор, возвращаем в стек
+
+            message = 'Function {} got incorrect number of arguments. Need {} arguments.'.format(func_name,
+                                                                                                 number_arguments)
+            for i in range(number_arguments * 2 - 1):
+                if stack:
+                    arguments.append(stack.pop())
+            if (arguments.count(',') != number_arguments - 1 or
+                    (stack and stack[-1] == ',') or
+                    len(arguments) != number_arguments * 2 - 1):
+                raise ValueError(message)
+            arguments = [i for i in arguments if i != ',']
+            function_result = func_name(*tuple(arguments))
+            stack.append(function_result)  # вычисляем оператор, возвращаем в стек
+            arguments = []
         elif token in BUILT_IN_FUNCTIONS:
             x = stack.pop()  # забираем 1 числo из стека
             if token == 'abs':
@@ -296,7 +308,7 @@ def process_unary_operations(validated_list):
                              not processed_list)
             if stack_str:
                 if '-' in stack_str:
-                    if stack_str.count('-') % 2 == 0:  # считаем кол-во -, заменяя на + либо -
+                    if stack_str.count('-') % 2 == 0:  # считаем кол-во -, заменяя на + либо на -
                         if is_unary_plus:
                             stack_str = ''
                         else:
@@ -315,14 +327,4 @@ def process_unary_operations(validated_list):
     return processed_list
 
 
-def check(num):
-    L = []
-    stack = [1, 2, 3, 4, 5]
-    for i in range(num):
-        L.append(stack.pop())
-    return L
-
-
-print(check(2))
-# print([1, 2, 3, 4, 5].pop())
-
+print(calc([2.0, ',', 2.0, ',', 2.0, 'pow']))

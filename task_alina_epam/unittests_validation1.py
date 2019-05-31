@@ -367,6 +367,11 @@ class ExpectedSuccessTestCase(unittest.TestCase):
                          'Errors were not found.', validate_parsed_list(['log', '(', 1.0, ',',
                                                                          '(', '-', 13.0, ')', ')']))
 
+    # incorrect number of arguments processing in calc
+    def test_40(self):
+        self.assertEqual('Formula was validated! '
+                         'Errors were not found.', validate_parsed_list(['pow', '(', 1.0, ')']))
+
 
 if __name__ == '__main__':
     unittest.main()
