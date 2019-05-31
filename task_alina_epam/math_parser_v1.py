@@ -3,6 +3,9 @@ import sys
 import math
 import string
 import operator
+import inspect
+
+from pip._vendor.msgpack.fallback import xrange
 
 LETTERS = tuple(string.ascii_lowercase + string.ascii_uppercase)
 
@@ -67,8 +70,7 @@ def matched_parentheses(el, count):
 
 def pre_validation(formula_string):
     if '..' in formula_string:  # проверяем, что число содержит не более одного разделителя
-        # raise ValueError('Number can not contain more than one delimiter!')
-        print('Number can not contain more than one delimiter!')
+        raise ValueError('Number can not contain more than one delimiter "." !')
     for el in formula_string.strip():
         if el not in ALLOWED_TOKENS:  # проверка на разрешённые элементы
             raise ValueError('Formula contains incorrect symbol "{}"'.format(el))
@@ -147,7 +149,7 @@ def parse(formula_string):
         yield op
 
 
-# TODO how to process sin(2, 3) - incorrect number of arguments, allowed only one
+# TODO how to process sin(2, 3) - incorrect number of arguments, allowed only one - in progress
 def validate_parsed_list(parsed_list):
     if not parsed_list:
         raise ValueError('Formula can not be empty!')
@@ -208,7 +210,7 @@ def validate_parsed_list(parsed_list):
 
 
 # TODO pi and e how to - seems is working
-# TODO more that one argument (,)
+# TODO more that one argument (,) - seems is working
 # TODO unari operation how to? - seems is working
 def sort_to_polish(parsed_formula):
     stack = []  # в качестве стэка используем список
@@ -252,12 +254,17 @@ def sort_to_polish(parsed_formula):
         yield stack.pop()
 
 
+# TODO fsum how
+# TODO gcd only integer input
+# TODO 1 arg, 2 args, 4 args
 def calc(polish_list):
     stack = []
     for token in polish_list:
         if token in MATH_FUNCTIONS:
+            func_name = getattr(math, token)
+            number_arguments = len(inspect.getfullargspec(func_name).args)
             x = stack.pop()  # забираем 1 числo из стека
-            stack.append(getattr(math, token)(x))  # вычисляем оператор, возвращаем в стек
+            stack.append(func_name(x))  # вычисляем оператор, возвращаем в стек
         elif token in BUILT_IN_FUNCTIONS:
             x = stack.pop()  # забираем 1 числo из стека
             if token == 'abs':
@@ -265,11 +272,8 @@ def calc(polish_list):
             elif token == 'round':
                 stack.append(round(x))
         elif token in OPERATORS:  # если приходящий элемент - оператор,
-            try:
-                y, x = stack.pop(), stack.pop()  # забираем 2 числа из стека
-                stack.append(OPERATORS[token][1](x, y))  # вычисляем оператор, возвращаем в стек
-            except IndexError:
-                raise ValueError('Incorrect formula!')
+            y, x = stack.pop(), stack.pop()  # забираем 2 числа из стека
+            stack.append(OPERATORS[token][1](x, y))  # вычисляем оператор, возвращаем в стек
         elif token in MATH_CONSTS:
             stack.append(getattr(math, token))
         else:
@@ -288,19 +292,19 @@ def process_unary_operations(validated_list):
         if el in UNARY_OPERATORS:
             stack_str += el
         else:
-            isUnaryPlus = ((processed_list and processed_list[-1] in (('(', ',') + tuple(BINARY_OPERATORS.keys()))) or
-                           not processed_list)
+            is_unary_plus = ((processed_list and processed_list[-1] in (('(', ',') + tuple(BINARY_OPERATORS.keys()))) or
+                             not processed_list)
             if stack_str:
                 if '-' in stack_str:
                     if stack_str.count('-') % 2 == 0:  # считаем кол-во -, заменяя на + либо -
-                        if isUnaryPlus:
+                        if is_unary_plus:
                             stack_str = ''
                         else:
                             stack_str = '+'
                     else:
                         stack_str = '-'
                 else:
-                    if isUnaryPlus:
+                    if is_unary_plus:
                         stack_str = ''
                     else:
                         stack_str = '+'
@@ -309,3 +313,16 @@ def process_unary_operations(validated_list):
                 stack_str = ''
             processed_list.append(el)
     return processed_list
+
+
+def check(num):
+    L = []
+    stack = [1, 2, 3, 4, 5]
+    for i in range(num):
+        L.append(stack.pop())
+    return L
+
+
+print(check(2))
+# print([1, 2, 3, 4, 5].pop())
+
