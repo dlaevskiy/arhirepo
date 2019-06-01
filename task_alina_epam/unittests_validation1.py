@@ -6,7 +6,7 @@ from task_alina_epam.math_parser_v1 import validate_parsed_list
 class ExpectedFailureTestCase(unittest.TestCase):
     # Error cases
     def test1(self):
-        self.assertRaises(ValueError, lambda: validate_parsed_list([]))
+        self.assertRaises(ValueError, lambda: validate_parsed_list(['+', '+']))
 
     def test2(self):
         self.assertRaises(ValueError, lambda: validate_parsed_list(['+']))

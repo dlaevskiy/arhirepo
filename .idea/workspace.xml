@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" line="290" />
+    <bookmark url="file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" line="316" />
     <bookmark url="file://$PROJECT_DIR$/task_alina_epam/unittests_sort_to_polish_function1.py" line="131" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8920d8a9-fe95-4c4d-abc0-982eb3204a44" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task_alina_epam/polish_delete_later.py" beforeDir="false" afterPath="$PROJECT_DIR$/task_alina_epam/polish_delete_later.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_alina_epam/unittests_calc.py" beforeDir="false" afterPath="$PROJECT_DIR$/task_alina_epam/unittests_calc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_alina_epam/unittests_prevalidation.py" beforeDir="false" afterPath="$PROJECT_DIR$/task_alina_epam/unittests_prevalidation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_alina_epam/unittests_validation1.py" beforeDir="false" afterPath="$PROJECT_DIR$/task_alina_epam/unittests_validation1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,30 +21,32 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/train$hi5.coverage" NAME="hi5 Coverage Results" MODIFIED="1556868504357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_calc_without_comma_py.coverage" NAME="Unittests in unittests_calc_without_comma.py Coverage Results" MODIFIED="1559378712057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$v2.coverage" NAME="v2 Coverage Results" MODIFIED="1557497090274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$unittests_parse_function.coverage" NAME="unittests_parse_function Coverage Results" MODIFIED="1557748899569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$ast_task.coverage" NAME="ast_task Coverage Results" MODIFIED="1557499544417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$afdadf.coverage" NAME="afdadf Coverage Results" MODIFIED="1557495564034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_parse_function_py.coverage" NAME="Unittests in unittests_parse_function1.py Coverage Results" MODIFIED="1559055371580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
+    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_prevalidation_py.coverage" NAME="Unittests in unittests_prevalidation.py Coverage Results" MODIFIED="1559379334762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_parse_function__py.coverage" NAME="Unittests in unittests_parse_function.py Coverage Results" MODIFIED="1557757628478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$unittests_sort_to_polish_function.coverage" NAME="unittests_sort_to_polish_function Coverage Results" MODIFIED="1557820004963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$hi2.coverage" NAME="hi2 Coverage Results" MODIFIED="1553157684283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/train$myargparse.coverage" NAME="myargparse Coverage Results" MODIFIED="1559062171271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
-    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_parse_function1_py.coverage" NAME="Unittests in unittests_parse_function1.py Coverage Results" MODIFIED="1559316138832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
+    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_parse_function1_py.coverage" NAME="Unittests in unittests_parse_function1.py Coverage Results" MODIFIED="1559379294604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$hi3.coverage" NAME="hi3 Coverage Results" MODIFIED="1555572946270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/train$Doctests_in_ast2.coverage" NAME="Doctests in ast2 Coverage Results" MODIFIED="1557497967224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$Unittests_in_polish_py.coverage" NAME="Unittests in polish_delete_later.py Coverage Results" MODIFIED="1559217334611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
-    <SUITE FILE_PATH="coverage/train$math_parser_v1.coverage" NAME="math_parser_v1 Coverage Results" MODIFIED="1559312130538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
-    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_calc_py.coverage" NAME="Unittests in unittests_calc.py Coverage Results" MODIFIED="1559316647280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
+    <SUITE FILE_PATH="coverage/train$math_parser_v1.coverage" NAME="math_parser_v1 Coverage Results" MODIFIED="1559377046730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
+    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_calc_py.coverage" NAME="Unittests in unittests_calc.py Coverage Results" MODIFIED="1559379810384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_validation_py.coverage" NAME="Unittests in unittests_validation1.py Coverage Results" MODIFIED="1557820130937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
-    <SUITE FILE_PATH="coverage/train$Unittests_in_unittest_process_unary_operations_py.coverage" NAME="Unittests in unittest_process_unary_operations.py Coverage Results" MODIFIED="1559059348523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
+    <SUITE FILE_PATH="coverage/train$Unittests_in_unittest_process_unary_operations_py.coverage" NAME="Unittests in unittest_process_unary_operations.py Coverage Results" MODIFIED="1559379284219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$Unittests_in_hello_py.coverage" NAME="Unittests in unittests_prevalidation.py Coverage Results" MODIFIED="1559055252671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$hi.coverage" NAME="hi Coverage Results" MODIFIED="1552913491047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/train$hi4.coverage" NAME="hi4 Coverage Results" MODIFIED="1556121943842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/train$Unittests_in_polish_delete_later_py.coverage" NAME="Unittests in polish_delete_later.py Coverage Results" MODIFIED="1559316423926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
-    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_validation1_py.coverage" NAME="Unittests in unittests_validation1.py Coverage Results" MODIFIED="1559316832537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
+    <SUITE FILE_PATH="coverage/train$Unittests_in_polish_delete_later_py.coverage" NAME="Unittests in polish_delete_later.py Coverage Results" MODIFIED="1559378593401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
+    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_validation1_py.coverage" NAME="Unittests in unittests_validation1.py Coverage Results" MODIFIED="1559379345889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
     <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_calculator_py.coverage" NAME="Unittests in unittests_calculator.py Coverage Results" MODIFIED="1557665902798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
-    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_sort_to_polish_function1_py.coverage" NAME="Unittests in unittests_sort_to_polish_function1.py Coverage Results" MODIFIED="1559217350773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
+    <SUITE FILE_PATH="coverage/train$Unittests_in_unittests_sort_to_polish_function1_py.coverage" NAME="Unittests in unittests_sort_to_polish_function1.py Coverage Results" MODIFIED="1559379339778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/task_alina_epam" />
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="356" />
@@ -52,41 +58,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-108">
-                  <caret line="255" column="22" lean-forward="true" selection-start-line="255" selection-start-column="22" selection-end-line="255" selection-end-column="22" />
+                <state relative-caret-position="126">
+                  <caret line="283" column="21" lean-forward="true" selection-start-line="283" selection-start-column="21" selection-end-line="283" selection-end-column="21" />
                   <folding>
                     <element signature="e#31#41#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/task_alina_epam/unittests_calc.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="54">
-                  <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/task_alina_epam/polish_delete_later.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="8" selection-start-line="8" selection-end-line="8" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/math.pyi">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="252">
-                  <caret line="47" column="30" lean-forward="true" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
                 </state>
               </provider>
             </entry>
@@ -140,7 +116,6 @@
       <find>user</find>
       <find>argv</find>
       <find>getfullargspec</find>
-      <find>','</find>
       <find>pow</find>
       <find>log</find>
       <find>('.', ',', ' ')</find>
@@ -148,6 +123,7 @@
       <find>OPERATORS</find>
       <find>DIGITS</find>
       <find>ALL_OPERATORS</find>
+      <find>','</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -183,7 +159,6 @@
         <option value="$PROJECT_DIR$/task_alina_epam/unittests_parse_function.py" />
         <option value="$PROJECT_DIR$/task_alina_epam/argparse.py" />
         <option value="$PROJECT_DIR$/task_alina_epam/hello.py" />
-        <option value="$PROJECT_DIR$/task_alina_epam/unittests_prevalidation.py" />
         <option value="$PROJECT_DIR$/task_alina_epam/unittests_parse_function1.py" />
         <option value="$PROJECT_DIR$/task_alina_epam/unittest_process_unary_operations.py" />
         <option value="$PROJECT_DIR$/task_alina_epam/myargparse.py" />
@@ -191,9 +166,12 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/task_alina_epam/polish.py" />
         <option value="$PROJECT_DIR$/task_alina_epam/unittests_sort_to_polish_function1.py" />
-        <option value="$PROJECT_DIR$/task_alina_epam/unittests_calc.py" />
+        <option value="$PROJECT_DIR$/task_alina_epam/unittests_prevalidation.py" />
         <option value="$PROJECT_DIR$/task_alina_epam/unittests_validation1.py" />
         <option value="$PROJECT_DIR$/task_alina_epam/polish_delete_later.py" />
+        <option value="$PROJECT_DIR$/task_alina_epam/unittests_calc_without_comma.py" />
+        <option value="$PROJECT_DIR$/task_alina_epam/calc_draft.py" />
+        <option value="$PROJECT_DIR$/task_alina_epam/unittests_calc.py" />
         <option value="$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" />
       </list>
     </option>
@@ -237,6 +215,9 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\train\task_alina_epam" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\train\task_alina_epam" />
       <recent name="C:\train" />
@@ -255,44 +236,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in unittests_validation1.py">
-    <configuration name="math_parser_v1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="train" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task_alina_epam" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/task_alina_epam/math_parser_v1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests in polish_delete_later.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="train" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task_alina_epam" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/task_alina_epam/polish_delete_later.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittests in unittests_calc.py">
     <configuration name="Unittests in unittests_calc.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="train" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -323,6 +267,36 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests in unittests_prevalidation.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="train" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task_alina_epam" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/task_alina_epam/unittests_prevalidation.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in unittests_sort_to_polish_function1.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="train" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/task_alina_epam" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/task_alina_epam/unittests_sort_to_polish_function1.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unittests in unittests_validation1.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="train" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -339,19 +313,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.math_parser_v1" />
-      <item itemvalue="Python tests.Unittests in polish_delete_later.py" />
-      <item itemvalue="Python tests.Unittests in unittests_calc.py" />
-      <item itemvalue="Python tests.Unittests in unittests_validation1.py" />
       <item itemvalue="Python tests.Unittests in unittests_parse_function1.py" />
+      <item itemvalue="Python tests.Unittests in unittests_prevalidation.py" />
+      <item itemvalue="Python tests.Unittests in unittests_sort_to_polish_function1.py" />
+      <item itemvalue="Python tests.Unittests in unittests_validation1.py" />
+      <item itemvalue="Python tests.Unittests in unittests_calc.py" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests in unittests_validation1.py" />
         <item itemvalue="Python tests.Unittests in unittests_calc.py" />
-        <item itemvalue="Python tests.Unittests in polish_delete_later.py" />
+        <item itemvalue="Python tests.Unittests in unittests_validation1.py" />
+        <item itemvalue="Python tests.Unittests in unittests_sort_to_polish_function1.py" />
+        <item itemvalue="Python tests.Unittests in unittests_prevalidation.py" />
         <item itemvalue="Python tests.Unittests in unittests_parse_function1.py" />
-        <item itemvalue="Python.math_parser_v1" />
       </list>
     </recent_temporary>
   </component>
@@ -378,63 +352,63 @@
       <workItem from="1557815761567" duration="22044000" />
       <workItem from="1558075447682" duration="6352000" />
       <workItem from="1558086311467" duration="3852000" />
-      <workItem from="1559053002649" duration="37686000" />
+      <workItem from="1559053002649" duration="49859000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_polish_delete_later_py - 2019.05.31 at 18h 24m 37s.xml">
-      <configuration name="Unittests in polish_delete_later.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_polish_delete_later_py - 2019.05.31 at 18h 24m 48s.xml">
-      <configuration name="Unittests in polish_delete_later.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_polish_delete_later_py - 2019.05.31 at 18h 25m 11s.xml">
-      <configuration name="Unittests in polish_delete_later.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_polish_delete_later_py - 2019.05.31 at 18h 25m 25s.xml">
-      <configuration name="Unittests in polish_delete_later.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_polish_delete_later_py - 2019.05.31 at 18h 25m 37s.xml">
-      <configuration name="Unittests in polish_delete_later.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_polish_delete_later_py - 2019.05.31 at 18h 26m 20s.xml">
-      <configuration name="Unittests in polish_delete_later.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_polish_delete_later_py - 2019.05.31 at 18h 27m 02s.xml">
-      <configuration name="Unittests in polish_delete_later.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_polish_delete_later_py - 2019.05.31 at 18h 30m 07s.xml">
-      <configuration name="Unittests in polish_delete_later.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_unittests_calc_py - 2019.05.31 at 18h 30m 47s.xml">
+    <history-entry file="Unittests_in_unittests_calc_py - 2019.06.01 at 11h 53m 33s.xml">
       <configuration name="Unittests in unittests_calc.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_unittests_validation1_py - 2019.05.31 at 18h 33m 52s.xml">
+    <history-entry file="Unittests_in_unittest_process_unary_operations_py - 2019.06.01 at 11h 54m 44s.xml">
+      <configuration name="Unittests in unittest_process_unary_operations.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_parse_function1_py - 2019.06.01 at 11h 54m 54s.xml">
+      <configuration name="Unittests in unittests_parse_function1.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_prevalidation_py - 2019.06.01 at 11h 55m 34s.xml">
+      <configuration name="Unittests in unittests_prevalidation.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_sort_to_polish_function1_py - 2019.06.01 at 11h 55m 40s.xml">
+      <configuration name="Unittests in unittests_sort_to_polish_function1.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_validation1_py - 2019.06.01 at 11h 55m 46s.xml">
       <configuration name="Unittests in unittests_validation1.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calc_py - 2019.06.01 at 11h 57m 20s.xml">
+      <configuration name="Unittests in unittests_calc.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calc_py - 2019.06.01 at 11h 58m 19s.xml">
+      <configuration name="Unittests in unittests_calc.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calc_py - 2019.06.01 at 12h 01m 09s.xml">
+      <configuration name="Unittests in unittests_calc.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_unittests_calc_py - 2019.06.01 at 12h 03m 30s.xml">
+      <configuration name="Unittests in unittests_calc.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234921000" />
+    <option name="totallyTimeSpent" value="247094000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2260128" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21801706" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.43555555" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.23333333" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16555555" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.50555557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.21666667" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.12666667" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -470,11 +444,6 @@
           <url>file://$PROJECT_DIR$/task_alina_epam/unittest_process_unary_operations.py</url>
           <line>87</line>
           <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/task_alina_epam/polish_delete_later.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -640,26 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/task_alina_epam/unittests_prevalidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/task_alina_epam/unittest_process_unary_operations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="52" lean-forward="true" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Python37/Lib/argparse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -705,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Python37/Lib/inspect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="1088" column="18" selection-start-line="1088" selection-start-column="4" selection-end-line="1088" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Python37/Lib/site-packages/pip/_vendor/msgpack/fallback.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -726,10 +668,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/task_alina_epam/unittests_sort_to_polish_function1.py">
+    <entry file="file://$PROJECT_DIR$/../Python37/Lib/unittest/case.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5560">
-          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        <state relative-caret-position="240">
+          <caret line="614" selection-start-line="614" selection-end-line="614" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Python37/Lib/inspect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="1332" selection-start-line="1332" selection-end-line="1332" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/math.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task_alina_epam/unittests_calc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+          <folding>
+            <element signature="e#31#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task_alina_epam/calc_draft.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1566">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task_alina_epam/unittest_process_unary_operations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="52" lean-forward="true" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -746,27 +729,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Python37/Lib/unittest/case.py">
+    <entry file="file://$PROJECT_DIR$/task_alina_epam/unittests_validation1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="614" selection-start-line="614" selection-end-line="614" />
+        <state relative-caret-position="72">
+          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/task_alina_epam/unittests_sort_to_polish_function1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/task_alina_epam/polish_delete_later.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="126">
+          <caret line="7" column="68" lean-forward="true" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/task_alina_epam/unittests_validation1.py">
+    <entry file="file://$PROJECT_DIR$/task_alina_epam/unittests_prevalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="362" column="112" lean-forward="true" selection-start-line="362" selection-start-column="112" selection-end-line="362" selection-end-column="112" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="7" selection-end-column="71" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -775,22 +771,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/task_alina_epam/unittests_calc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/math.pyi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="47" column="30" lean-forward="true" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+        <state relative-caret-position="55">
+          <caret line="268" lean-forward="true" selection-start-line="268" selection-end-line="268" />
+          <folding>
+            <element signature="e#31#46#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/task_alina_epam/math_parser_v1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-108">
-          <caret line="255" column="22" lean-forward="true" selection-start-line="255" selection-start-column="22" selection-end-line="255" selection-end-column="22" />
+        <state relative-caret-position="126">
+          <caret line="283" column="21" lean-forward="true" selection-start-line="283" selection-start-column="21" selection-end-line="283" selection-end-column="21" />
           <folding>
             <element signature="e#31#41#0" expanded="true" />
           </folding>

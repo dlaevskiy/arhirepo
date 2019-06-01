@@ -69,10 +69,16 @@ def matched_parentheses(el, count):
 
 
 def pre_validation(formula_string):
-    if '..' in formula_string:  # проверяем, что число содержит не более одного разделителя
+    # проверка, что формула не пустая строка
+    if not isinstance(formula_string, str) or not formula_string:
+        raise ValueError('Formula should be non empty string!')
+    # проверяем, что в формуле нет более одного разделителя подряд
+    # в текущей реализации удобнее сделать это здесь, чтобы упростить дальнейший парсинг на токены
+    if '..' in formula_string:
         raise ValueError('Number can not contain more than one delimiter "." !')
+    # проверка на разрешённые элементы
     for el in formula_string.strip():
-        if el not in ALLOWED_TOKENS:  # проверка на разрешённые элементы
+        if el not in ALLOWED_TOKENS:
             raise ValueError('Formula contains incorrect symbol "{}"'.format(el))
 
 
@@ -150,8 +156,6 @@ def parse(formula_string):
 
 
 def validate_parsed_list(parsed_list):
-    if not parsed_list:
-        raise ValueError('Formula can not be empty!')
     if parsed_list[-1] in OPERATORS:
         raise ValueError('Operator at the end of the formula: "{}" '.format(parsed_list[-1]))
     if parsed_list[0] in BINARY_OPERATORS:
@@ -252,31 +256,49 @@ def sort_to_polish(parsed_formula):
 
 # TODO gcd only integer input
 # TODO ldexp float + integer input
-# TODO 1 arg, 2 args, 4 args - in progress
+# TODO 1 arg, 2 args, 4 args - seems is working
 def calc(polish_list):
     stack = []
+
     for token in polish_list:
         if token in MATH_FUNCTIONS:
             arguments = []
             func_name = getattr(math, token)
-            number_arguments = len(inspect.getfullargspec(func_name).args)
 
-            message = 'Function {} got incorrect number of arguments. Need {} arguments.'.format(func_name,
-                                                                                                 number_arguments)
-            for i in range(number_arguments * 2 - 1):
-                if stack:
-                    arguments.append(stack.pop())
-            if (arguments.count(',') != number_arguments - 1 or
-                    (stack and stack[-1] == ',') or
-                    len(arguments) != number_arguments * 2 - 1):
-                raise ValueError(message)
-            arguments = [i for i in arguments if i != ',']
-            function_result = func_name(*tuple(arguments))
+            #  TODO пока костыль с ЛОГ
+            if func_name != math.log:
+                number_of_args = len(inspect.getfullargspec(func_name).args)
+                for i in range(number_of_args):
+                    if stack:
+                        arguments.insert(0, stack.pop())
+            else:
+                # т к log имеет переменное кол-во аргументов отдельная обработка
+                index_current_log_token = polish_list.index(token)
+                try:
+                    next_token_after_log = polish_list[index_current_log_token + 1]
+                except IndexError:
+                    next_token_after_log = ''
+
+                if next_token_after_log in OPERATORS and len(stack) == 2:
+                    arguments.insert(0, stack.pop())
+                else:
+                    if len(stack) >= 2:
+                        arguments.insert(0, stack.pop())
+                        arguments.insert(0, stack.pop())
+                    else:
+                        arguments.insert(0, stack.pop())
+
+            try:
+                function_result = func_name(*tuple(arguments))
+            except TypeError:
+                raise ValueError('Formula contains incorrect number of arguments in function.')
+
             stack.append(function_result)  # вычисляем оператор, возвращаем в стек
             arguments = []
+
         elif token in BUILT_IN_FUNCTIONS:
             x = stack.pop()  # забираем 1 числo из стека
-            # TODO how to get attr automatically
+            # TODO how to get built-in attr automatically
             if token == 'abs':
                 stack.append(abs(x))
             elif token == 'round':
@@ -288,6 +310,10 @@ def calc(polish_list):
             stack.append(getattr(math, token))
         else:
             stack.append(token)
+
+    if len(stack) > 1:
+        raise ValueError('Formula contains incorrect number of arguments in function.')
+
     return stack[0]  # результат вычисления - единственный элемент в стеке
 
 
@@ -323,3 +349,10 @@ def process_unary_operations(validated_list):
                 stack_str = ''
             processed_list.append(el)
     return processed_list
+
+
+l = []
+for el in sort_to_polish([1.0, '+', 2.0, '+', 3.0, '+', 'log', '(', 4.0, ',', 5.0, ')']):
+    l.append(el)
+
+print(l)

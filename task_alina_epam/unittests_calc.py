@@ -1,7 +1,6 @@
 # -*- coding: Windows-1251 -*-
 import unittest
 import math
-# task_alina_epam.
 from math_parser_v1 import calc
 
 
@@ -116,11 +115,10 @@ class TestCalcing(unittest.TestCase):
         self.assertEqual((2.0**(math.pi/math.pi+math.e/math.e+2.0**0.0))**(1.0/3.0), calc(
                         [2.0, 'pi', 'pi', '/', 'e', 'e', '/', '+', 2.0, 0.0, '^', '+', '^', 1.0, 3.0, '/', '^']))
 
-    # TODO: TypeError: cannot concatenate 'str' and 'float' objects
     def test34(self):
         self.assertEqual(math.sin(math.pi/2.0**1.0) + math.log(1*4+2**2+1, 3**2), calc(['pi', 2.0, 1.0, '^', '/', 'sin',
                                                                                     1.0, 4.0, '*', 2.0, 2.0, '^', '+',
-                                                                                    1.0, '+', ',', 3.0, 2.0, '^',
+                                                                                    1.0, '+',  3.0, 2.0, '^',
                                                                                     'log', '+']))
 
     def test35(self):
@@ -139,11 +137,10 @@ class TestCalcing(unittest.TestCase):
     def test37(self):
         self.assertEqual(2.0**(2.0**2.0*2.0**2.0), calc([2.0, 2.0, 2.0, '^', 2.0, 2.0, '^', '*', '^']))
 
-    # TODO: TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'float'
     def test38(self):
         self.assertEqual(math.sin(math.e**math.log(math.e**math.e**math.sin(23.0), 45.0) +
                                   math.cos(3.0+math.log10(math.e**-math.e))),
-                         calc(['e', 'e', 'e', 23.0, 'sin', '^', '^', ',', 45.0, 'log', '^', 3.0, 'e', 0.0, 'e', '-',
+                         calc(['e', 'e', 'e', 23.0, 'sin', '^', '^',  45.0, 'log', '^', 3.0, 'e', 0.0, 'e', '-',
                                '^', 'log10', '+', 'cos', '+', 'sin']))
 
     # Self-made cases
@@ -173,45 +170,37 @@ class TestCalcing(unittest.TestCase):
         self.assertEqual(abs(-round(3.56393)), calc([0.0, 3.56393, 'round', '-', 'abs']))
 
     # logarithms
-    # TODO: AssertionError: 3.0 != 8.0
     def test61(self):
-        self.assertEqual(math.log(8.0, 2.0), calc([8.0, ',', 2.0, 'log']))
+        self.assertEqual(math.log(8.0, 2.0), calc([8.0, 2.0, 'log']))
 
     def test62(self):
         self.assertEqual(math.log(2.7), calc([2.7, 'log']))
 
-    # TODO: AssertionError: 0.0 != 8.0
     def test63(self):
-        self.assertEqual((math.log(8.0, 2.0)-1.0)-2.0, calc([8.0, ',', 2.0, 'log', 1.0, '-', 2.0, '-']))
+        self.assertEqual((math.log(8.0, 2.0)-1.0)-2.0, calc([8.0, 2.0, 'log', 1.0, '-', 2.0, '-']))
 
-    # TODO: TypeError: unsupported operand type(s) for -: 'str' and 'float'
     def test64(self):
-        self.assertEqual(-math.log(8.0, 2.0), calc([0.0, 8.0, ',', 2.0, 'log', '-']))
+        self.assertEqual(-math.log(8.0, 2.0), calc([0.0, 8.0, 2.0, 'log', '-']))
 
-    # TODO: AssertionError: 2.0 != 8.0
     def test65(self):
-        self.assertEqual(math.log(8.0, 2.0)-1.0, calc([8.0, ',', 2.0, 'log', 1.0, '-']))
+        self.assertEqual(math.log(8.0, 2.0)-1.0, calc([8.0, 2.0, 'log', 1.0, '-']))
 
-    # TODO: TypeError: can't multiply sequence by non-int of type 'float'
     def test66(self):
         self.assertEqual(math.log(8.0, 2.0)*math.log(16.0, 2.0),
-                         calc([8.0, ',', 2.0, 'log', 16.0, ',', 2.0, 'log', '*']))
+                         calc([8.0, 2.0, 'log', 16.0, 2.0, 'log', '*']))
 
-    # TODO: TypeError: can't multiply sequence by non-int of type 'float'
     def test67(self):
         self.assertEqual(math.sin(math.log(8.0, 2.0)*math.log(16.0, 2.0)),
-                         calc([8.0, ',', 2.0, 'log', 16.0, ',', 2.0, 'log', '*', 'sin']))
+                         calc([8.0, 2.0, 'log', 16.0, 2.0, 'log', '*', 'sin']))
 
-    # TODO: AssertionError: 3.0 != 27.0
     def test68(self):
-        self.assertEqual(math.log(8.0+20.0-1.0, 2.0+1.0), calc([8.0, 20.0, '+', 1.0, '-', ',', 2.0,  1.0, '+', 'log']))
+        self.assertEqual(math.log(8.0+20.0-1.0, 2.0+1.0), calc([8.0, 20.0, '+', 1.0, '-', 2.0,  1.0, '+', 'log']))
 
     def test69(self):
         self.assertEqual(math.log10(100.0), calc([100.0, 'log10']))
 
-    # TODO: AssertionError: 2.0 != 100.0
     def test70(self):
-        self.assertEqual(math.log(100.0, 10.0), calc([100.0, ',', 10.0, 'log']))
+        self.assertEqual(math.log(100.0, 10.0), calc([100.0, 10.0, 'log']))
 
     def test71(self):
         self.assertEqual((math.log10(100.0)-1.0)-2.0, calc([100.0, 'log10', 1.0, '-', 2.0, '-']))
@@ -233,40 +222,32 @@ class TestCalcing(unittest.TestCase):
         self.assertEqual(math.log10(800.0/2.0/4.0), calc([800.0, 2.0, '/', 4.0, '/', 'log10']))
 
     # pow
-    # TODO: TypeError: pow expected 2 arguments, got 1
     def test77(self):
-        self.assertEqual(math.pow(2.0, 4.0), calc([2.0, ',', 4.0, 'pow']))
+        self.assertEqual(math.pow(2.0, 4.0), calc([2.0, 4.0, 'pow']))
 
-    # TODO: TypeError: pow expected 2 arguments, got 1
     def test78(self):
-        self.assertEqual(math.log(math.pow(10.0, 2.0), 10), calc([10.0, ',', 2.0, 'pow', ',', 10.0, 'log']))
+        self.assertEqual(math.log(math.pow(10.0, 2.0), 10), calc([10.0, 2.0, 'pow', 10.0, 'log']))
 
-    # TODO: TypeError: pow expected 2 arguments, got 1
     def test79(self):
-        self.assertEqual((math.pow(2.0, 4.0)-1.0)-2.0, calc([2.0, ',', 4.0, 'pow', 1.0, '-', 2.0, '-']))
+        self.assertEqual((math.pow(2.0, 4.0)-1.0)-2.0, calc([2.0, 4.0, 'pow', 1.0, '-', 2.0, '-']))
 
-    # TODO: TypeError: pow expected 2 arguments, got 1
     def test80(self):
-        self.assertEqual(-math.pow(2.0, 4.0), calc([0.0, 2.0, ',', 4.0, 'pow', '-']))
+        self.assertEqual(-math.pow(2.0, 4.0), calc([0.0, 2.0, 4.0, 'pow', '-']))
 
-    # TODO: TypeError: pow expected 2 arguments, got 1
     def test81(self):
-        self.assertEqual(math.pow(2.0, 4.0)-1.0, calc([2.0, ',', 4.0, 'pow', 1.0, '-']))
+        self.assertEqual(math.pow(2.0, 4.0)-1.0, calc([2.0, 4.0, 'pow', 1.0, '-']))
 
-    # TODO: TypeError: pow expected 2 arguments, got 1
     def test82(self):
-        self.assertEqual(math.pow(2.0, 4.0)*math.pow(2.0, 3.0), calc([2.0, ',', 4.0, 'pow', 2.0, ',', 3.0, 'pow', '*']))
+        self.assertEqual(math.pow(2.0, 4.0)*math.pow(2.0, 3.0), calc([2.0, 4.0, 'pow', 2.0, 3.0, 'pow', '*']))
 
-    # TODO: TypeError: pow expected 2 arguments, got 1
     def test83(self):
-        self.assertEqual(math.sin(math.pow(2.0, 4.0)*math.pow(2.0, 3.0)), calc([2.0, ',', 4.0, 'pow', 2.0, ',', 3.0,
+        self.assertEqual(math.sin(math.pow(2.0, 4.0)*math.pow(2.0, 3.0)), calc([2.0, 4.0, 'pow', 2.0, 3.0,
                                                                                 'pow', '*', 'sin']))
 
-    # TODO: TypeError: pow expected 2 arguments, got 1
     def test84(self):
         self.assertEqual(math.pow(2.0**(2.0**2.0*2.0**2.0), math.log10(100.0)*math.log10(1000.0)),
-                         calc([2.0, 2.0, 2.0, '^', 2.0, 2.0, '^', '*', '^', ',', 100.0, 'log10', 1000.0, 'log10', '*',
-                               'sin', 'pow']))
+                         calc([2.0, 2.0, 2.0, '^', 2.0, 2.0, '^', '*', '^', 100.0, 'log10', 1000.0, 'log10', '*',
+                               'pow']))
 
     def test85(self):
         self.assertEqual(13.0, calc([13.0]))
@@ -297,6 +278,21 @@ class TestCalcing(unittest.TestCase):
 
     def test94(self):
         self.assertEqual(-(-(-1.0)), calc([0.0, 0.0, 0.0, 1.0, '-', '-', '-']))
+
+
+class TestCalcNegativeCases(unittest.TestCase):
+    def test1(self):
+        self.assertRaises(ValueError, lambda: calc([1.0, 2.0, 'sin']))
+
+    def test2(self):
+        self.assertRaises(ValueError, lambda: calc([1.0, 2.0, 3.0, 'sin']))
+
+    def test3(self):
+        self.assertRaises(ValueError, lambda: calc([1.0, 'pow']))
+
+    def test4(self):
+        self.assertRaises(ValueError, lambda: calc([1.0, 2.0, 3.0, 'pow']))
+
 
 if __name__ == '__main__':
     unittest.main()

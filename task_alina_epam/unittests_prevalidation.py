@@ -80,6 +80,15 @@ class TestParsingNegativeCases(unittest.TestCase):
     def test109(self):
         self.assertRaises(ValueError, lambda: pre_validation('1>=1..5'))
 
+    def test110(self):
+        self.assertRaises(ValueError, lambda: pre_validation(''))
+
+    def test111(self):
+        self.assertRaises(ValueError, lambda: pre_validation(None))
+
+    def test112(self):
+        self.assertRaises(ValueError, lambda: pre_validation(18))
+
 
 if __name__ == '__main__':
     unittest.main()
