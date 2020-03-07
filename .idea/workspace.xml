@@ -6,59 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8920d8a9-fe95-4c4d-abc0-982eb3204a44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/check/go2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/check/train1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coursera_web_python/regexp_sample/regexp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coursera_web_python/regexp_sample/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coursera_web_python/req/friends.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/1_model_of_data/1-koloda_kart.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/1_model_of_data/2-vectors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/2_sequence_array/1_listcomp_and_genexp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/2_sequence_array/2_slices.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/2_sequence_array/3_lists_arrays.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/2_sequence_array/4-orders.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/3_dictionaries_and_sets/1-dicts-initializations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/3_dictionaries_and_sets/2-default-dict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/3_dictionaries_and_sets/3-userDict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/3_dictionaries_and_sets/text_file.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/4_unicode/1_unicode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/4_unicode/2_nfc_equal_and_fold_equal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/5_functions/1_functions_as_objects.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/5_functions/2_lambdas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/5_functions/3_users_callable_types.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/5_functions/4_function_introspection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/5_functions/5_positions_and_named_parameters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/6_function_patterns/1_pattern_strategy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/6_function_patterns/2_pattern_command.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/7_decorators_and_zamykania/1_overview.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/7_decorators_and_zamykania/2_when_decorators_execute.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/7_decorators_and_zamykania/3_lru_cache.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fluent_python/7_decorators_and_zamykania/4_singledispatch.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mongodb task/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check/train_debug.py" beforeDir="false" afterPath="$PROJECT_DIR$/check/train_debug.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hi.py" beforeDir="false" afterPath="$PROJECT_DIR$/hi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hi5.py" beforeDir="false" afterPath="$PROJECT_DIR$/hi5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/new/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/new/.idea/new.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/new/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/new/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/new/DatabaseProcessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/hu_test_task/DatabaseProcessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new/FileProcessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/hu_test_task/FileProcessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/hu_test_task/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/hu_test_task/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/hu_test_task/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser_mt101/parser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web client/web.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/лутц/глава 37/attributes_property.py" beforeDir="false" afterPath="$PROJECT_DIR$/лутц/глава 37/attributes_property.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/лутц/глава 37/descriptors_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/лутц/глава 37/descriptors_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/лутц/глава 37/descriptors_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/лутц/глава 37/descriptors_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/лутц/глава 37/methods_property.py" beforeDir="false" afterPath="$PROJECT_DIR$/лутц/глава 37/methods_property.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/coursera_web_python/regexp_sample/regexp.py" afterPath="$PROJECT_DIR$/coursera_web_python/regexp_task/regexp.py" />
+      <change beforePath="$PROJECT_DIR$/coursera_web_python/regexp_sample/test.py" afterPath="$PROJECT_DIR$/coursera_web_python/regexp_task/test.py" />
+      <change beforePath="$PROJECT_DIR$/coursera_web_python/req/friends.py" afterPath="$PROJECT_DIR$/coursera_web_python/requests_vk_task/friends.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,23 +86,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/coursera_web_python/regexp_sample/regexp.py">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursera_web_python/regexp_sample/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -274,39 +217,50 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="train" type="b2602c69:ProjectViewProjectNode" />
-              <item name="train" type="462c0819:PsiDirectoryNode" />
+              <item name="arhirepo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="train" type="b2602c69:ProjectViewProjectNode" />
-              <item name="train" type="462c0819:PsiDirectoryNode" />
+              <item name="arhirepo" type="462c0819:PsiDirectoryNode" />
               <item name="coursera_web_python" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="train" type="b2602c69:ProjectViewProjectNode" />
-              <item name="train" type="462c0819:PsiDirectoryNode" />
+              <item name="arhirepo" type="462c0819:PsiDirectoryNode" />
               <item name="coursera_web_python" type="462c0819:PsiDirectoryNode" />
-              <item name="regexp_sample" type="462c0819:PsiDirectoryNode" />
+              <item name="beautiful_soup_task" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Sources/fo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -336,9 +290,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager">
     <configuration name="3_lru_cache" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="train" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -349,18 +302,15 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="train" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fluent_python/7_decorators_and_zamykania/3_lru_cache.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="4_singledispatch" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="train" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -371,18 +321,15 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="train" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fluent_python/7_decorators_and_zamykania/4_singledispatch.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="friends" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="train" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -393,18 +340,15 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="train" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/coursera_web_python/req/friends.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="regexp" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="train" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -415,18 +359,15 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="train" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/coursera_web_python/regexp_sample/regexp.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="train" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -437,32 +378,33 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="train" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/coursera_web_python/regexp_sample/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Python.3_lru_cache" />
-      <item itemvalue="Python.4_singledispatch" />
-      <item itemvalue="Python.friends" />
-      <item itemvalue="Python.test" />
-      <item itemvalue="Python.regexp" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.regexp" />
+      <item index="1" class="java.lang.String" itemvalue="Python.3_lru_cache" />
+      <item index="2" class="java.lang.String" itemvalue="Python.4_singledispatch" />
+      <item index="3" class="java.lang.String" itemvalue="Python.friends" />
+      <item index="4" class="java.lang.String" itemvalue="Python.test" />
     </list>
     <recent_temporary>
-      <list>
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.regexp" />
-        <item itemvalue="Python.friends" />
-        <item itemvalue="Python.4_singledispatch" />
-        <item itemvalue="Python.3_lru_cache" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.test" />
+        <item index="1" class="java.lang.String" itemvalue="Python.friends" />
+        <item index="2" class="java.lang.String" itemvalue="Python.4_singledispatch" />
+        <item index="3" class="java.lang.String" itemvalue="Python.3_lru_cache" />
+        <item index="4" class="java.lang.String" itemvalue="Python.regexp" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -555,30 +497,23 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24520256" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29555556" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3211111" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="bottom" id="SonarLint" order="13" />
-      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" side_tool="true" weight="0.32995737" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="SciView" order="5" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,6 +528,9 @@
         <option value="1" />
       </list>
     </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -675,13 +613,7 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Python37/Lib/collections/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="1023" selection-start-line="1023" selection-end-line="1023" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../Python37/Lib/collections/__init__.py" />
     <entry file="file://$PROJECT_DIR$/mongodb task/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -689,44 +621,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/лутц/decorators/openshelve.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/лутц/work_with_class_2_advanced_examples/example7_dictatributes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/лутц/глава 37/attributes_property.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/лутц/decorators/openshelve.py" />
+    <entry file="file://$PROJECT_DIR$/лутц/work_with_class_2_advanced_examples/example7_dictatributes.py" />
+    <entry file="file://$PROJECT_DIR$/лутц/глава 37/attributes_property.py" />
     <entry file="file://$PROJECT_DIR$/fluent_python/3_dictionaries_and_sets/4-sets.py" />
-    <entry file="file://$PROJECT_DIR$/лутц/глава 37/methods_property.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/лутц/глава 37/descriptors_1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/лутц/глава 37/methods_property.py" />
+    <entry file="file://$PROJECT_DIR$/лутц/глава 37/descriptors_1.py" />
     <entry file="file://$PROJECT_DIR$/fluent_python/4_unicode/2_struct_and_memory_view.py" />
     <entry file="file://$PROJECT_DIR$/check/train_debug.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -735,13 +635,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Python37/Lib/ntpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="530" selection-start-line="530" selection-end-line="530" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../Python37/Lib/ntpath.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons/py/path/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -752,120 +646,77 @@
     <entry file="file://$PROJECT_DIR$/fluent_python/3_dictionaries_and_sets/2-default-dict.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fluent_python/3_dictionaries_and_sets/3-userDict.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fluent_python/4_unicode/processing_text_files_python3.py" />
-    <entry file="file://$PROJECT_DIR$/лутц/глава 37/descriptors_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/лутц/глава 37/descriptors_2.py" />
     <entry file="file://$PROJECT_DIR$/fluent_python/4_unicode/2_nfc_equal_and_fold_equal.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fluent_python/4_unicode/1_unicode.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-payments/build/dev_scripts/payment/xmlpain/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="142" column="6" selection-start-line="142" selection-start-column="6" selection-end-line="142" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-payments/build/dev_scripts/payment/xmlpain/base_alias.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-payments/build/dev_scripts/payment/xmlpain/alias_new_btmu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="587" column="38" selection-start-line="587" selection-start-column="38" selection-end-line="587" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-payments/build/dev_scripts/payment/xmlpain/abstract_alias.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-432" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-robot/build/dev_scripts/keyspayment.robot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="49" column="16" lean-forward="true" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-payments/build/dev_scripts/payment/xmlpain/base.py" />
+    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-payments/build/dev_scripts/payment/xmlpain/base_alias.py" />
+    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-payments/build/dev_scripts/payment/xmlpain/alias_new_btmu.py" />
+    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-payments/build/dev_scripts/payment/xmlpain/abstract_alias.py" />
+    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-robot/build/dev_scripts/keyspayment.robot" />
     <entry file="file://$PROJECT_DIR$/fluent_python/5_functions/3_users_callable_types.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="true" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fluent_python/5_functions/1_functions_as_objects.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+          <caret line="2" column="47" lean-forward="false" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fluent_python/5_functions/4_function_introspection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/check/go">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/check/train2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="28" />
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/check/go2">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        <state relative-caret-position="0">
+          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fluent_python/5_functions/2_lambdas.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -890,135 +741,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Python37/Lib/string.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4746" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Python37/Lib/_pydecimal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="162" column="10" lean-forward="true" selection-start-line="162" selection-start-column="10" selection-end-line="162" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-robot/build/dev_scripts/PaymentVariables.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="307" column="38" selection-start-line="307" selection-end-line="307" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../Python37/Lib/string.py" />
+    <entry file="file://$PROJECT_DIR$/../Python37/Lib/_pydecimal.py" />
+    <entry file="file://$PROJECT_DIR$/../Sources/fo/fo-robot/build/dev_scripts/PaymentVariables.py" />
     <entry file="file://$PROJECT_DIR$/check/check.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fluent_python/7_decorators_and_zamykania/2_when_decorators_execute.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+          <caret line="4" column="41" lean-forward="false" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fluent_python/7_decorators_and_zamykania/3_lru_cache.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Python37/Lib/html/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/collections/abc.pyi">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Python37/Lib/numbers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../Python37/Lib/html/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/../Python37/Lib/numbers.py" />
     <entry file="file://$PROJECT_DIR$/fluent_python/7_decorators_and_zamykania/1_overview.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="846">
-          <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
+          <caret line="47" column="49" lean-forward="false" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/P0CablXaEeiOFxKmNjWWlA_3f99418055da11e88156cbc0ecbe5f46_requests/requests.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/datetime.pyi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="226" column="35" selection-start-line="226" selection-start-column="32" selection-end-line="226" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Python37/Lib/site-packages/vk/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="148" column="8" selection-start-line="148" selection-start-column="8" selection-end-line="148" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-1055577769/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="2871" column="8" selection-start-line="2871" selection-start-column="8" selection-end-line="2871" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/P0CablXaEeiOFxKmNjWWlA_3f99418055da11e88156cbc0ecbe5f46_requests/requests.ipynb" />
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/datetime.pyi" />
+    <entry file="file://$PROJECT_DIR$/../Python37/Lib/site-packages/vk/api.py" />
+    <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-1055577769/builtins.py" />
     <entry file="file://$PROJECT_DIR$/fluent_python/7_decorators_and_zamykania/4_singledispatch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursera_web_python/req/friends.py">
+    <entry file="file://$PROJECT_DIR$/coursera_web_python/requests_vk_task/friends.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursera_web_python/regexp_task/regexp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="29" lean-forward="false" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursera_web_python/regexp_task/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <element signature="e#12#21#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursera_web_python/regexp_sample/test.py">
+    <entry file="file://$PROJECT_DIR$/coursera_web_python/beautiful_soup_task/wiki/14th_Chess_Olympiad">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="143" lean-forward="true" selection-start-line="5" selection-start-column="143" selection-end-line="5" selection-end-column="143" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursera_web_python/regexp_sample/regexp.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
