@@ -1,8 +1,11 @@
 import copy
+import decimal
+
 
 class DeepCopyDict(dict):
     def copy(self):
         return copy.copy(self)
+
 
 class KyribaPYHeaderDict(DeepCopyDict):
 
@@ -10,6 +13,7 @@ class KyribaPYHeaderDict(DeepCopyDict):
         if key == "PROTOCOL" and val:
             val += '11111'
         dict.__setitem__(self, key, val)
+
 
 R_HEADER = KyribaPYHeaderDict({
     'PROTOCOL': u'010',
@@ -21,7 +25,7 @@ R_HEADER = KyribaPYHeaderDict({
 
 R_HEADER.__setitem__('PROTOCOL', 'FTP')
 
-print R_HEADER
+print(R_HEADER)
 
 
 

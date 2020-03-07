@@ -36,7 +36,7 @@ def getTime3(field):
         return '1600'
 
 
-print getTime3('00:11')
+print(getTime3('00:11'))
 
 
 aga = '<br>'.join(['11', '22', '33'])
