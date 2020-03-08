@@ -32,7 +32,7 @@ def parse(path_to_file):
             else:
                 break
 
-        linkslen = current_streak if current_streak > linkslen else linkslen
+        linkslen = max(linkslen, current_streak)
 
     return [imgs, headers, linkslen, lists]
 
