@@ -1,5 +1,62 @@
+# PyDev project
+.project
+.pydevproject
+.settings
+.classpath
+
 # idea project
 .idea/
 *.iml
 *.iws
 *.ipr
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+# VS Code
+*.vscode
+
+# Python pre-compiled sources
+*.pyc
+
+# Jython compiled classes
+*$py.class
+
+# Gradle
+build/
+.gradle/
+.gradletasknamecache
+
+#Python
+dist/
+*.egg-info/
+
+# Finder Desctip icon cacke on Mac OS X
+.DS_Store
+
+# local settings for FAB file
+localsettings.json
+
+venv/
+.venv/
+.cache/
+
+# pytest
+test-report/
+.pytest_cache/
+
+# test coverage
+.coverage
+.scannerwork/
+it-coverage.xml
+coverage.xml
+__pycache__/
+.coverage*
+coverage-*/
+excluded_folders.txt
+python_files.txt
+source_folders.txt
+
+# pylint
+pylint_reports/
